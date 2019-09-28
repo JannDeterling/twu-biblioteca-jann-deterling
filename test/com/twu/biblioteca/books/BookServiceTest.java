@@ -22,14 +22,13 @@ public class BookServiceTest {
   public void shouldPrintAllBooksFromTheRepository() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
     List<Book> books = sampleBookRepository.getAllBooks();
-    String expectedOutput = books.get(0).toString()+System.lineSeparator()
-            +books.get(1).toString()+System.lineSeparator()
-            +books.get(2).toString()+System.lineSeparator();
+    final StringBuilder stringBuilder = new StringBuilder();
+    books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
 
     BookService bookService = new BookService(sampleBookRepository);
     bookService.printBookList();
 
-    assertEquals(outContent.toString(), expectedOutput);
+    assertEquals(outContent.toString(), stringBuilder.toString());
   }
 
 }
