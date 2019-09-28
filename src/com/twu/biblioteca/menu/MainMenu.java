@@ -41,6 +41,9 @@ public class MainMenu {
 
     if (optionalMenuOption.isPresent()){
       optionalMenuOption.get().runAction();
+    }	else {
+      System.out.println("Please select a valid option!");
+      this.displayMenu();
     }
   }
 }
