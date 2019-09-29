@@ -1,7 +1,9 @@
 package com.twu.biblioteca.books;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -19,19 +21,19 @@ public class BookTest {
     assertEquals(title, book.getTitle());
     assertEquals(author, book.getAuthor());
     assertEquals(publishedYear, book.getPublishedYear());
-    assertEquals(false, book.isCheckedOut());
+    assertFalse(book.isCheckedOut());
   }
 
   @Test
-  public void shouldCheckOutABook(){
+  public void shouldCheckOutABook() {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
     assertNotNull(book);
-    assertEquals(false, book.isCheckedOut());
+    assertFalse(book.isCheckedOut());
     book.checkOut();
-    assertEquals(true, book.isCheckedOut());
+    assertTrue(book.isCheckedOut());
   }
 
   @Test(expected = AssertionError.class)
