@@ -41,8 +41,5 @@ public class SampleBookRepositoryTest {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
     Optional<Book> optionalBook = sampleBookRepository.getBookByTitle(title);
     assertFalse(optionalBook.isPresent());
-    Book book = optionalBook.get();
-    assertNull(book);
-
   }
 }
