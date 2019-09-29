@@ -7,11 +7,11 @@ public class BookService {
 
   private BookRepository bookRepository;
 
-  public BookService(BookRepository bookRepository){
+  public BookService(BookRepository bookRepository) {
     this.bookRepository = bookRepository;
   }
 
-  public void printBookList(){
+  public void printBookList() {
     this.bookRepository.getAllBooks().forEach(book -> System.out.println(book.toString()));
   }
 
@@ -19,8 +19,11 @@ public class BookService {
     final Scanner scanner = new Scanner(System.in);
     this.printBookList();
     System.out.println("Please enter the title of the book you want to check out:");
-    String title = scanner.next();
+    String title = scanner.nextLine();
     Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
+    optionalBook.ifPresent(book -> {
+      book.checkOut();
+    });
   }
 
 }
