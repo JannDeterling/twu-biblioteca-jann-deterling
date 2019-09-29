@@ -6,6 +6,8 @@ import com.twu.biblioteca.menu.MainMenu;
 
 public class BibliotecaApp {
 
+    private static boolean shouldQuit = false;
+
     public static void main(String[] args) {
         WelcomeMessagePrinter.printWelcomeMessage();
 
@@ -13,6 +15,14 @@ public class BibliotecaApp {
 
         MainMenu mainMenu = new MainMenu();
         mainMenu.registerMenuOption("List books", bookService::printBookList);
-        mainMenu.displayMenu();
+        mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
+        while (!shouldQuit) {
+          mainMenu.displayMenu();
+        }
+    }
+
+    public static void quitBibliotecaApp() {
+       shouldQuit = true;
+       System.out.println("Thanks for using Biblioteca!\nHave a great day!");
     }
 }
