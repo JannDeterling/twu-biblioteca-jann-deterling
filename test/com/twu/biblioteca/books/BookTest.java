@@ -32,8 +32,22 @@ public class BookTest {
     Book book = new Book(title, author, publishedYear);
     assertNotNull(book);
     assertFalse(book.isCheckedOut());
-    book.checkOut();
+    assertTrue(book.checkOut());
     assertTrue(book.isCheckedOut());
+  }
+
+  @Test
+  public void shouldNotDoubleCheckOutABook() {
+    String title = "Domain Driven Design";
+    String author = "Eric Evans";
+    Year publishedYear = Year.parse("2003");
+    Book book = new Book(title, author, publishedYear);
+    assertNotNull(book);
+    assertTrue(book.checkOut());
+    assertTrue(book.isCheckedOut());
+    assertFalse(book.checkOut());
+    assertTrue(book.isCheckedOut());
+
   }
 
   @Test(expected = AssertionError.class)
