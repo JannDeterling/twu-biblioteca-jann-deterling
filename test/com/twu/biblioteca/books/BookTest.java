@@ -17,6 +17,21 @@ public class BookTest {
     Book book = new Book(title, author, publishedYear);
     assertNotNull(book);
     assertEquals(title, book.getTitle());
+    assertEquals(author, book.getAuthor());
+    assertEquals(publishedYear, book.getPublishedYear());
+    assertEquals(false, book.isCheckedOut());
+  }
+
+  @Test
+  public void shouldCheckOutABook(){
+    String title = "Domain Driven Design";
+    String author = "Eric Evans";
+    Year publishedYear = Year.parse("2003");
+    Book book = new Book(title, author, publishedYear);
+    assertNotNull(book);
+    assertEquals(false, book.isCheckedOut());
+    book.checkOut();
+    assertEquals(true, book.isCheckedOut());
   }
 
   @Test(expected = AssertionError.class)
