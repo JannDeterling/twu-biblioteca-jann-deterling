@@ -50,10 +50,12 @@ public class Book {
     return this.isCheckedOut;
   }
 
-  public void checkOut() {
+  public Boolean checkOut() {
     if (!this.isCheckedOut) {
       this.isCheckedOut = true;
+      return true;
     }
+    return false;
   }
 
   @Override
