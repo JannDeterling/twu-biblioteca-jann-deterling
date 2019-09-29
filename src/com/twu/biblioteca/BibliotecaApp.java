@@ -15,6 +15,8 @@ public class BibliotecaApp {
 
         MainMenu mainMenu = new MainMenu();
         mainMenu.registerMenuOption("List books", bookService::printBookList);
+        mainMenu.registerMenuOption("Check out a book", bookService::checkOutBook);
+
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
         while (!shouldQuit) {
           mainMenu.displayMenu();
