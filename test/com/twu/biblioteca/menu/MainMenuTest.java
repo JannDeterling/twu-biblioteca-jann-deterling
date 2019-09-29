@@ -3,11 +3,13 @@ package com.twu.biblioteca.menu;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -17,12 +19,26 @@ import com.twu.biblioteca.books.SampleBookRepository;
 
 public class MainMenuTest {
 
-  private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+  private final InputStream systemIn = System.in;
+  private final PrintStream systemOut = System.out;
 
-  @BeforeClass
-  public static void setupTest() {
-    System.setOut(new PrintStream(outContent));
+  private ByteArrayOutputStream testOut;
 
+  @Before
+  public void setUpOutput() {
+    testOut = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(testOut));
+  }
+
+  private void provideTestInput(String data) {
+    ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+    System.setIn(testIn);
+  }
+
+  @After
+  public void restoreSystemInputOutput() {
+    System.setIn(systemIn);
+    System.setOut(systemOut);
   }
 
   @Test(expected = AssertionError.class)
@@ -47,8 +63,7 @@ public class MainMenuTest {
 
   @Test
   public void shouldDisplayMenu() {
-    final ByteArrayInputStream inContent = new ByteArrayInputStream("1".getBytes());
-    System.setIn(inContent);
+    provideTestInput("1");
     String description = "List Books";
     MainMenu mainMenu = new MainMenu();
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
@@ -66,14 +81,14 @@ public class MainMenuTest {
     List<Book> books = sampleBookRepository.getAllBooks();
     books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
 
-    assertNotEquals(outContent.toString(), "");
-    assertEquals(stringBuilder.toString(), outContent.toString());
+    assertNotEquals(testOut.toString(), "");
+    assertEquals(stringBuilder.toString(), testOut.toString());
   }
 
   @Test
   public void shouldDisplayMenuWithRetry() {
-    final ByteArrayInputStream inContent = new ByteArrayInputStream("-1 1".getBytes());
-    System.setIn(inContent);
+
+    provideTestInput("-1 1");
     String description = "List Books";
     MainMenu mainMenu = new MainMenu();
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
@@ -97,7 +112,7 @@ public class MainMenuTest {
     List<Book> books = sampleBookRepository.getAllBooks();
     books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
 
-    assertNotEquals(outContent.toString(), "");
-    assertEquals(stringBuilder.toString(), outContent.toString());
+    assertNotEquals(testOut.toString(), "");
+    assertEquals(stringBuilder.toString(), testOut.toString());
   }
 }
