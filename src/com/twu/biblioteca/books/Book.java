@@ -7,12 +7,14 @@ public class Book {
   private String title;
   private String author;
   private Year publishedYear;
+  private Boolean isCheckedOut;
 
 
   public Book(String title, String author, Year publishedYear) {
     this.setTitle(title);
     this.setAuthor(author);
     this.setPublishedYear(publishedYear);
+    this.isCheckedOut = false;
   }
 
   private void setTitle(String title) {
@@ -42,6 +44,16 @@ public class Book {
 
   public Year getPublishedYear() {
     return publishedYear;
+  }
+
+  public Boolean isCheckedOut() {
+    return this.isCheckedOut;
+  }
+
+  public void checkOut() {
+    if (!this.isCheckedOut) {
+      this.isCheckedOut = true;
+    }
   }
 
   @Override
