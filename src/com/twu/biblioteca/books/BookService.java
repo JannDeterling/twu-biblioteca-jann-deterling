@@ -22,7 +22,9 @@ public class BookService {
     String title = scanner.nextLine();
     Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
     optionalBook.ifPresent(book -> {
-      book.checkOut();
+      if (book.checkOut()) {
+        System.out.println("Thank you! Enjoy the book.");
+      }
     });
   }
 
