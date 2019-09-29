@@ -35,19 +35,19 @@ public class BookServiceTest {
     final String expectedOutcome = this.expectedPrintedBooks();
     BookService bookService = new BookService(new SampleBookRepository());
     bookService.printBookList();
-    assertEquals(outContent.toString(), expectedOutcome);
+    assertEquals(expectedOutcome, outContent.toString());
   }
 
   @Test
   public void shouldCheckoutABook() {
     final StringBuilder expectedOutcome = new StringBuilder();
     expectedOutcome.append(this.expectedPrintedBooks());
-    expectedOutcome.append(System.lineSeparator());
     expectedOutcome.append("Please enter the title of the book you want to check out:");
+    expectedOutcome.append(System.lineSeparator());
     this.provideTestInput("Domain Driven Design");
     BookService bookService = new BookService(new SampleBookRepository());
     bookService.checkOutBook();
-
+    assertEquals(expectedOutcome.toString(), outContent.toString());
   }
 
   private void provideTestInput(String data) {
