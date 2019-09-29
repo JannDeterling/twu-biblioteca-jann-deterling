@@ -1,8 +1,11 @@
 package com.twu.biblioteca.books;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookRepository {
 
-  public List<Book> getAllBooks();
+  List<Book> getAllBooks();
+
+  Optional<Book> getBookByTitle(String title);
 }

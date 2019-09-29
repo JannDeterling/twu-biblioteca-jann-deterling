@@ -4,6 +4,7 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class SampleBookRepository implements BookRepository {
 
@@ -17,5 +18,11 @@ public class SampleBookRepository implements BookRepository {
   @Override
   public List<Book> getAllBooks() {
     return SAMPLE_BOOK_LIST;
+  }
+
+
+  @Override
+  public Optional<Book> getBookByTitle(String title){
+    return SAMPLE_BOOK_LIST.stream().filter(book -> book.getTitle().equals(title)).findAny();
   }
 }
