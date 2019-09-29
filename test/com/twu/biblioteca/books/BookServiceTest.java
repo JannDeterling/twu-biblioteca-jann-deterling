@@ -41,9 +41,11 @@ public class BookServiceTest {
   @Test
   public void shouldCheckoutABook() {
     final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks());
-    expectedOutcome.append("Please enter the title of the book you want to check out:");
-    expectedOutcome.append(System.lineSeparator());
+    expectedOutcome.append(this.expectedPrintedBooks())
+        .append("Please enter the title of the book you want to check out:")
+        .append(System.lineSeparator())
+        .append("Thank you! Enjoy the book.")
+        .append(System.lineSeparator());
     this.provideTestInput("Domain Driven Design");
     BookService bookService = new BookService(new SampleBookRepository());
     bookService.checkOutBook();
