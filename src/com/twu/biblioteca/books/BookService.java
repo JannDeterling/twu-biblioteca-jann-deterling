@@ -21,11 +21,19 @@ public class BookService {
     System.out.println("Please enter the title of the book you want to check out:");
     String title = scanner.nextLine();
     Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
-    optionalBook.ifPresent(book -> {
+
+    final String errorMessage = "Sorry, that book is not available.";
+    if (optionalBook.isPresent()){
+      Book book = optionalBook.get();
       if (book.checkOut()) {
         System.out.println("Thank you! Enjoy the book.");
+      }else {
+        System.out.println(errorMessage);
       }
-    });
+    }else {
+      System.out.println(errorMessage);
+    }
+
   }
 
 }
