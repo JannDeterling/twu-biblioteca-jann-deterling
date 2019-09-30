@@ -58,6 +58,14 @@ public class Book {
     return false;
   }
 
+  public Boolean returnBook(){
+    if (this.isCheckedOut){
+      this.isCheckedOut = false;
+      return true;
+    }
+    return false;
+  }
+
   @Override
   public String toString() {
     return "Book{" +
