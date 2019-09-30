@@ -1,9 +1,10 @@
 package com.twu.biblioteca.books;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -17,11 +18,11 @@ public class BookTest {
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
-    assertNotNull(book);
-    assertEquals(title, book.getTitle());
-    assertEquals(author, book.getAuthor());
-    assertEquals(publishedYear, book.getPublishedYear());
-    assertFalse(book.isCheckedOut());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(title, is(equalTo(book.getTitle())));
+    assertThat(author, is(equalTo(book.getAuthor())));
+    assertThat(publishedYear, is(equalTo(book.getPublishedYear())));
+    assertThat(book.isCheckedOut(), is(false));
   }
 
   @Test
@@ -30,10 +31,10 @@ public class BookTest {
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
-    assertNotNull(book);
-    assertFalse(book.isCheckedOut());
-    assertTrue(book.checkOutBook());
-    assertTrue(book.isCheckedOut());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(book.isCheckedOut(), is(false));
+    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.isCheckedOut(), is(true));
   }
 
   @Test
@@ -42,11 +43,11 @@ public class BookTest {
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
-    assertNotNull(book);
-    assertTrue(book.checkOutBook());
-    assertTrue(book.isCheckedOut());
-    assertFalse(book.checkOutBook());
-    assertTrue(book.isCheckedOut());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.isCheckedOut(), is(true));
+    assertThat(book.checkOutBook(), is(false));
+    assertThat(book.isCheckedOut(), is(true));
 
   }
 
@@ -56,12 +57,12 @@ public class BookTest {
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
-    assertNotNull(book);
-    assertFalse(book.isCheckedOut());
-    assertTrue(book.checkOutBook());
-    assertTrue(book.isCheckedOut());
-    assertTrue(book.returnBook());
-    assertFalse(book.isCheckedOut());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(book.isCheckedOut(), is(false));
+    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.isCheckedOut(), is(true));
+    assertThat(book.returnBook(), is(true));
+    assertThat(book.isCheckedOut(), is(false));
   }
 
   @Test
@@ -70,39 +71,39 @@ public class BookTest {
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
-    assertNotNull(book);
-    assertFalse(book.returnBook());
-    assertFalse(book.isCheckedOut());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(book.returnBook(), is(false));
+    assertThat(book.isCheckedOut(), is(false));
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithNull() {
-    Book book = new Book(null, null, null);
+    new Book(null, null, null);
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithEmptyTitle() {
-    Book book = new Book("", "Eric Evans", Year.parse("2003"));
+    new Book("", "Eric Evans", Year.parse("2003"));
   }
 
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithNullTitle() {
-    Book book = new Book(null, "Eric Evans", Year.parse("2003"));
+    new Book(null, "Eric Evans", Year.parse("2003"));
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithEmptyAuthor() {
-    Book book = new Book("Domain Driven Design", "", Year.parse("2003"));
+    new Book("Domain Driven Design", "", Year.parse("2003"));
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithNullAuthor() {
-    Book book = new Book("Domain Driven Design", null, Year.parse("2003"));
+    new Book("Domain Driven Design", null, Year.parse("2003"));
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithNullYear() {
-    Book book = new Book("Domain Driven Design", "Eric Evans", null);
+   new Book("Domain Driven Design", "Eric Evans", null);
   }
 }
