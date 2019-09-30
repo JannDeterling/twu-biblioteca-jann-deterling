@@ -109,6 +109,8 @@ public class BookServiceTest {
     bookService.checkOutBook();
 
     expectedOutput.append("Please enter the title of the book you want to return:")
+        .append(System.lineSeparator())
+        .append("Thank you for returning the book.")
         .append(System.lineSeparator());
     this.provideTestInput("Domain Driven Design");
     bookService.returnBook();
