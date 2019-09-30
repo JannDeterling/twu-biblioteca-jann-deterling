@@ -50,6 +50,31 @@ public class BookTest {
 
   }
 
+  @Test
+  public void shouldReturnABook() {
+    String title = "Domain Driven Design";
+    String author = "Eric Evans";
+    Year publishedYear = Year.parse("2003");
+    Book book = new Book(title, author, publishedYear);
+    assertNotNull(book);
+    assertFalse(book.isCheckedOut());
+    assertTrue(book.checkOutBook());
+    assertTrue(book.isCheckedOut());
+    assertTrue(book.returnBook());
+    assertFalse(book.isCheckedOut());
+  }
+
+  @Test
+  public void shouldReturnAAvailableBook() {
+    String title = "Domain Driven Design";
+    String author = "Eric Evans";
+    Year publishedYear = Year.parse("2003");
+    Book book = new Book(title, author, publishedYear);
+    assertNotNull(book);
+    assertFalse(book.returnBook());
+    assertFalse(book.isCheckedOut());
+  }
+
   @Test(expected = AssertionError.class)
   public void shouldNotCreateValidBookWithNull() {
     Book book = new Book(null, null, null);
