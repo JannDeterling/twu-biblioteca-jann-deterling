@@ -14,7 +14,7 @@ public class BibliotecaApp {
         BookService bookService = new BookService(new SampleBookRepository());
 
         MainMenu mainMenu = new MainMenu();
-        mainMenu.registerMenuOption("List books", bookService::printBookList);
+        mainMenu.registerMenuOption("List available books", bookService::printAvailableBookList);
         mainMenu.registerMenuOption("Check out a book", bookService::checkOutBook);
 
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
