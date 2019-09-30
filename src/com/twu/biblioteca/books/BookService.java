@@ -45,7 +45,12 @@ public class BookService {
     System.out.println("Please enter the title of the book you want to return:");
     String title = scanner.nextLine();
     Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
-    optionalBook.ifPresent(Book::returnBook);
+    if (optionalBook.isPresent()) {
+      Book book = optionalBook.get();
+      if (book.returnBook()) {
+        System.out.println("Thank you for returning the book.");
+      }
+    }
   }
 
 }
