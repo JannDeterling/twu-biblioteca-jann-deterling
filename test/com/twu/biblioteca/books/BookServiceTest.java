@@ -1,6 +1,9 @@
 package com.twu.biblioteca.books;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,12 +19,12 @@ public class BookServiceTest {
 
   private final InputStream systemIn = System.in;
   private final PrintStream systemOut = System.out;
-  private ByteArrayOutputStream outContent;
+  private ByteArrayOutputStream testOutput;
 
   @Before
   public void setUpOutput() {
-    outContent = new ByteArrayOutputStream();
-    System.setOut(new PrintStream(outContent));
+    testOutput = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(testOutput));
   }
 
   @After
@@ -36,14 +39,14 @@ public class BookServiceTest {
     final String expectedOutcome = this.expectedPrintedBooks(sampleBookRepository.getAllBooks());
     final BookService bookService = new BookService(sampleBookRepository);
     bookService.printBookList();
-    assertEquals(expectedOutcome, outContent.toString());
+    assertThat(expectedOutcome, is(equalTo(testOutput.toString())));
   }
 
   @Test
   public void shouldCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    final StringBuilder expectedOutput = new StringBuilder();
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -51,14 +54,14 @@ public class BookServiceTest {
     final BookService bookService = new BookService(sampleBookRepository);
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
-    assertEquals(expectedOutcome.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test
   public void shouldNotCheckoutANonExistingBook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    final StringBuilder expectedOutput = new StringBuilder();
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
@@ -66,15 +69,15 @@ public class BookServiceTest {
     this.provideTestInput("New Domain Driven Design");
     final BookService bookService = new BookService(sampleBookRepository);
     bookService.checkOutBook();
-    assertEquals(expectedOutcome.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test
   public void shouldNotDoubleCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    final StringBuilder expectedOutcome = new StringBuilder();
+    final StringBuilder expectedOutput = new StringBuilder();
 
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -83,7 +86,7 @@ public class BookServiceTest {
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
 
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
@@ -91,7 +94,7 @@ public class BookServiceTest {
 
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
-    assertEquals(expectedOutcome.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test
@@ -118,7 +121,7 @@ public class BookServiceTest {
     bookService.printAvailableBookList();
     expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
 
-    assertEquals(expectedOutput.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test
@@ -135,7 +138,7 @@ public class BookServiceTest {
 
     bookService.printAvailableBookList();
     expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
-    assertEquals(expectedOutput.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test
@@ -152,7 +155,7 @@ public class BookServiceTest {
 
     bookService.printAvailableBookList();
     expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
-    assertEquals(expectedOutput.toString(), outContent.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   private void provideTestInput(String data) {
