@@ -32,22 +32,63 @@ public class BookServiceTest {
 
   @Test
   public void shouldPrintAllBooksFromTheRepository() {
-    final String expectedOutcome = this.expectedPrintedBooks();
-    BookService bookService = new BookService(new SampleBookRepository());
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final String expectedOutcome = this.expectedPrintedBooks(sampleBookRepository.getAllBooks());
+    final BookService bookService = new BookService(sampleBookRepository);
     bookService.printBookList();
     assertEquals(expectedOutcome, outContent.toString());
   }
 
   @Test
   public void shouldCheckoutABook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks())
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
         .append(System.lineSeparator());
+    final BookService bookService = new BookService(sampleBookRepository);
     this.provideTestInput("Domain Driven Design");
-    BookService bookService = new BookService(new SampleBookRepository());
+    bookService.checkOutBook();
+    assertEquals(expectedOutcome.toString(), outContent.toString());
+  }
+
+  @Test
+  public void shouldNotCheckoutANonExistingBook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final StringBuilder expectedOutcome = new StringBuilder();
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+        .append("Please enter the title of the book you want to check out:")
+        .append(System.lineSeparator())
+        .append("Sorry, that book is not available.")
+        .append(System.lineSeparator());
+    this.provideTestInput("New Domain Driven Design");
+    final BookService bookService = new BookService(sampleBookRepository);
+    bookService.checkOutBook();
+    assertEquals(expectedOutcome.toString(), outContent.toString());
+  }
+
+  @Test
+  public void shouldNotDoubleCheckoutABook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final StringBuilder expectedOutcome = new StringBuilder();
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+        .append("Please enter the title of the book you want to check out:")
+        .append(System.lineSeparator())
+        .append("Thank you! Enjoy the book.")
+        .append(System.lineSeparator());
+    final BookService bookService = new BookService(sampleBookRepository);
+    this.provideTestInput("Domain Driven Design");
+    bookService.checkOutBook();
+
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+        .append("Please enter the title of the book you want to check out:")
+        .append(System.lineSeparator())
+        .append("Sorry, that book is not available.")
+        .append(System.lineSeparator());
+
+    this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
     assertEquals(expectedOutcome.toString(), outContent.toString());
   }
@@ -57,9 +98,7 @@ public class BookServiceTest {
     System.setIn(testIn);
   }
 
-  private String expectedPrintedBooks() {
-    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    final List<Book> books = sampleBookRepository.getAllBooks();
+  private String expectedPrintedBooks(List<Book> books) {
     final StringBuilder stringBuilder = new StringBuilder();
     books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
     return stringBuilder.toString();
