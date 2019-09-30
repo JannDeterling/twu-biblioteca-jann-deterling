@@ -43,7 +43,7 @@ public class BookServiceTest {
   public void shouldCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -58,7 +58,7 @@ public class BookServiceTest {
   public void shouldNotCheckoutANonExistingBook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
@@ -73,7 +73,7 @@ public class BookServiceTest {
   public void shouldNotDoubleCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutcome = new StringBuilder();
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -82,7 +82,7 @@ public class BookServiceTest {
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
 
-    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooks()))
+    expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
