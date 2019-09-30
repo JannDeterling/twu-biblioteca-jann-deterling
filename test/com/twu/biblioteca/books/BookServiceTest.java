@@ -126,10 +126,30 @@ public class BookServiceTest {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutput = new StringBuilder();
     expectedOutput.append("Please enter the title of the book you want to return:")
+        .append(System.lineSeparator())
+        .append("Sorry, that book is not a valid book to return.")
         .append(System.lineSeparator());
     this.provideTestInput("Domain Driven Design");
     final BookService bookService = new BookService(sampleBookRepository);
     bookService.returnBook();
+
+    bookService.printAvailableBookList();
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+    assertEquals(expectedOutput.toString(), outContent.toString());
+  }
+
+  @Test
+  public void shouldNotReturnUnValidBook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final StringBuilder expectedOutput = new StringBuilder();
+    expectedOutput.append("Please enter the title of the book you want to return:")
+        .append(System.lineSeparator())
+        .append("Sorry, that book is not a valid book to return.")
+        .append(System.lineSeparator());
+    this.provideTestInput("New Domain Driven Design");
+    final BookService bookService = new BookService(sampleBookRepository);
+    bookService.returnBook();
+
     bookService.printAvailableBookList();
     expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
     assertEquals(expectedOutput.toString(), outContent.toString());
