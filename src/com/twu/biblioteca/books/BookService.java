@@ -40,4 +40,12 @@ public class BookService {
 
   }
 
+  public void returnBook(){
+    final Scanner scanner = new Scanner(System.in);
+    System.out.println("Please enter the title of the book you want to return:");
+    String title = scanner.nextLine();
+    Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
+    optionalBook.ifPresent(Book::returnBook);
+  }
+
 }
