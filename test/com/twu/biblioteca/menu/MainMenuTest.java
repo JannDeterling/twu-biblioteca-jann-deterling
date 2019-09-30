@@ -1,7 +1,9 @@
 package com.twu.biblioteca.menu;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -71,18 +73,18 @@ public class MainMenuTest {
     mainMenu.registerMenuOption(description, bookService::printBookList);
     mainMenu.displayMenu();
 
-    StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append("1) ")
+    StringBuilder expectedOutput = new StringBuilder();
+    expectedOutput.append("1) ")
         .append(description)
         .append(System.lineSeparator())
         .append("Please select a option (enter the number):")
         .append(System.lineSeparator());
 
     List<Book> books = sampleBookRepository.getAllBooks();
-    books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
+    books.forEach(book -> expectedOutput.append(book.toString()).append(System.lineSeparator()));
 
-    assertNotEquals(testOut.toString(), "");
-    assertEquals(stringBuilder.toString(), testOut.toString());
+    assertThat(testOut.toString(), is(not(equalTo(""))));
+    assertThat(expectedOutput.toString(), is(equalTo(testOut.toString())));
   }
 
   @Test
@@ -112,7 +114,7 @@ public class MainMenuTest {
     List<Book> books = sampleBookRepository.getAllBooks();
     books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
 
-    assertNotEquals(testOut.toString(), "");
-    assertEquals(stringBuilder.toString(), testOut.toString());
+    assertThat(testOut.toString(), is(not(equalTo(""))));
+    assertThat(stringBuilder.toString(), is(equalTo(testOut.toString())));
   }
 }
