@@ -73,6 +73,7 @@ public class BookServiceTest {
   public void shouldNotDoubleCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutcome = new StringBuilder();
+
     expectedOutcome.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
@@ -91,6 +92,45 @@ public class BookServiceTest {
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
     assertEquals(expectedOutcome.toString(), outContent.toString());
+  }
+
+  @Test
+  public void shouldReturnABook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final StringBuilder expectedOutput = new StringBuilder();
+    final BookService bookService = new BookService(sampleBookRepository);
+
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+        .append("Please enter the title of the book you want to check out:")
+        .append(System.lineSeparator())
+        .append("Thank you! Enjoy the book.")
+        .append(System.lineSeparator());
+    this.provideTestInput("Domain Driven Design");
+    bookService.checkOutBook();
+
+    expectedOutput.append("Please enter the title of the book you want to return:")
+        .append(System.lineSeparator());
+    this.provideTestInput("Domain Driven Design");
+    bookService.returnBook();
+
+    bookService.printAvailableBookList();
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+
+    assertEquals(expectedOutput.toString(), outContent.toString());
+  }
+
+  @Test
+  public void shouldNotReturnAvailableBook() {
+    final SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    final StringBuilder expectedOutput = new StringBuilder();
+    expectedOutput.append("Please enter the title of the book you want to return:")
+        .append(System.lineSeparator());
+    this.provideTestInput("Domain Driven Design");
+    final BookService bookService = new BookService(sampleBookRepository);
+    bookService.returnBook();
+    bookService.printAvailableBookList();
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+    assertEquals(expectedOutput.toString(), outContent.toString());
   }
 
   private void provideTestInput(String data) {
