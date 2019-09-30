@@ -50,7 +50,7 @@ public class Book {
     return this.isCheckedOut;
   }
 
-  public Boolean checkOut() {
+  public Boolean checkOutBook() {
     if (!this.isCheckedOut) {
       this.isCheckedOut = true;
       return true;

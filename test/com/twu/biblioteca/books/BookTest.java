@@ -32,7 +32,7 @@ public class BookTest {
     Book book = new Book(title, author, publishedYear);
     assertNotNull(book);
     assertFalse(book.isCheckedOut());
-    assertTrue(book.checkOut());
+    assertTrue(book.checkOutBook());
     assertTrue(book.isCheckedOut());
   }
 
@@ -43,9 +43,9 @@ public class BookTest {
     Year publishedYear = Year.parse("2003");
     Book book = new Book(title, author, publishedYear);
     assertNotNull(book);
-    assertTrue(book.checkOut());
+    assertTrue(book.checkOutBook());
     assertTrue(book.isCheckedOut());
-    assertFalse(book.checkOut());
+    assertFalse(book.checkOutBook());
     assertTrue(book.isCheckedOut());
 
   }

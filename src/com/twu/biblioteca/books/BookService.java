@@ -29,7 +29,7 @@ public class BookService {
     final String errorMessage = "Sorry, that book is not available.";
     if (optionalBook.isPresent()){
       Book book = optionalBook.get();
-      if (book.checkOut()) {
+      if (book.checkOutBook()) {
         System.out.println("Thank you! Enjoy the book.");
       }else {
         System.out.println(errorMessage);

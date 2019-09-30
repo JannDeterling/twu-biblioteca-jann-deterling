@@ -20,7 +20,7 @@ public class SampleBookRepositoryTest {
     assertNotNull(bookList);
     assertNotEquals(bookList.size(), 0);
     assertEquals(bookList.size(), 3);
-    bookList.get(0).checkOut();
+    bookList.get(0).checkOutBook();
     bookList = sampleBookRepository.getAllBooksAvailable();
     assertNotNull(bookList);
     assertNotEquals(bookList.size(), 0);
