@@ -20,11 +20,8 @@ public class BookService {
   }
 
   public void checkOutBook() {
-    final Scanner scanner = new Scanner(System.in);
     this.printAvailableBookList();
-    System.out.println("Please enter the title of the book you want to check out:");
-    String title = scanner.nextLine();
-    Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
+    final Optional<Book> optionalBook = this.findBookToCheckOut();
 
     final String errorMessage = "Sorry, that book is not available.";
     if (optionalBook.isPresent()){
@@ -41,11 +38,7 @@ public class BookService {
   }
 
   public void returnBook(){
-    final Scanner scanner = new Scanner(System.in);
-    System.out.println("Please enter the title of the book you want to return:");
-    String title = scanner.nextLine();
-    Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
-
+    final Optional<Book> optionalBook = this.findBookToReturn();
     final String errorMessage = "Sorry, that book is not a valid book to return.";
     if (optionalBook.isPresent()) {
       Book book = optionalBook.get();
@@ -57,6 +50,22 @@ public class BookService {
     }else {
       System.out.println(errorMessage);
     }
+  }
+
+
+  private Optional<Book> findBookToCheckOut() {
+    return this.findBookForUsageAction("Please enter the title of the book you want to check out:");
+  }
+
+  private Optional<Book> findBookToReturn() {
+    return this.findBookForUsageAction("Please enter the title of the book you want to return:");
+  }
+
+  private Optional<Book> findBookForUsageAction(String messageToDisplay){
+    final Scanner scanner = new Scanner(System.in);
+    System.out.println(messageToDisplay);
+    String title = scanner.nextLine();
+    return this.bookRepository.getBookByTitle(title);
   }
 
 }
