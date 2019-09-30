@@ -6,7 +6,7 @@ import com.twu.biblioteca.menu.MainMenu;
 
 public class BibliotecaApp {
 
-    private static boolean shouldQuit = false;
+    private static Boolean shouldQuit = false;
 
     public static void main(String[] args) {
         WelcomeMessagePrinter.printWelcomeMessage();
@@ -16,6 +16,7 @@ public class BibliotecaApp {
         MainMenu mainMenu = new MainMenu();
         mainMenu.registerMenuOption("List available books", bookService::printAvailableBookList);
         mainMenu.registerMenuOption("Check out a book", bookService::checkOutBook);
+        mainMenu.registerMenuOption("Return a book", bookService::returnBook);
 
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
         while (!shouldQuit) {
