@@ -1,8 +1,10 @@
 package com.twu.biblioteca.menu;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,11 +19,11 @@ import com.twu.biblioteca.books.SampleBookRepository;
 
 public class MenuOptionTest {
 
-  private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+  private static final ByteArrayOutputStream testOutput = new ByteArrayOutputStream();
 
   @BeforeClass
   public static void setupTest() {
-    System.setOut(new PrintStream(outContent));
+    System.setOut(new PrintStream(testOutput));
   }
 
   @Test
@@ -29,9 +31,9 @@ public class MenuOptionTest {
     String menuOptionDescription = "List Books";
     BookService bookService = new BookService(new SampleBookRepository());
     MenuOption menuOption = new MenuOption(0, menuOptionDescription, bookService::printBookList);
-    assertNotNull(menuOption);
-    assertEquals(menuOption.getIndex(), new Integer(0));
-    assertEquals(menuOption.getDescription(), menuOptionDescription);
+    assertThat(menuOption, is(not(nullValue(MenuOption.class))));
+    assertThat(menuOption.getIndex(), is(0));
+    assertThat(menuOption.getDescription(), is(equalTo(menuOptionDescription)));
   }
 
   @Test
@@ -41,14 +43,14 @@ public class MenuOptionTest {
     BookService bookService = new BookService(sampleBookRepository);
     MenuOption menuOption = new MenuOption(0, menuOptionDescription, bookService::printBookList);
     menuOption.runAction();
-    assertNotEquals(outContent.toString(), "");
+    assertThat(testOutput.toString(), is(not(equalTo(""))));
 
 
     List<Book> books = sampleBookRepository.getAllBooks();
-    final StringBuilder stringBuilder = new StringBuilder();
-    books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
+    final StringBuilder expectedOutput = new StringBuilder();
+    books.forEach(book -> expectedOutput.append(book.toString()).append(System.lineSeparator()));
 
-    assertEquals(outContent.toString(), stringBuilder.toString());
+    assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
   @Test(expected = AssertionError.class)
@@ -65,7 +67,6 @@ public class MenuOptionTest {
 
   @Test(expected = AssertionError.class)
   public void shouldCreateInvalidMenuOptionWithNullAction() {
-    BookService bookService = new BookService(new SampleBookRepository());
     new MenuOption(0, "List Books", null);
   }
 
