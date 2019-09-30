@@ -1,7 +1,9 @@
 package com.twu.biblioteca;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,6 +28,6 @@ public class WelcomeMessagePrinterTest {
     String expectedOutcome = "Welcome to Biblioteca. Your one-stop-shop for great book titles in "
         + "Bangalore!" + System.lineSeparator();
     WelcomeMessagePrinter.printWelcomeMessage();
-    assertEquals(expectedOutcome, outContent.toString());
+    assertThat(expectedOutcome, is(equalTo(outContent.toString())));
   }
 }
