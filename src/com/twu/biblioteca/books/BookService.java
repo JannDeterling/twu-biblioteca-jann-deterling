@@ -15,9 +15,13 @@ public class BookService {
     this.bookRepository.getAllBooks().forEach(book -> System.out.println(book.toString()));
   }
 
+  public void printAvailableBookList() {
+    this.bookRepository.getAllBooksAvailable().forEach(book -> System.out.println(book.toString()));
+  }
+
   public void checkOutBook() {
     final Scanner scanner = new Scanner(System.in);
-    this.printBookList();
+    this.printAvailableBookList();
     System.out.println("Please enter the title of the book you want to check out:");
     String title = scanner.nextLine();
     Optional<Book> optionalBook = this.bookRepository.getBookByTitle(title);
