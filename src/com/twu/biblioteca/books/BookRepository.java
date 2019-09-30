@@ -7,5 +7,7 @@ public interface BookRepository {
 
   List<Book> getAllBooks();
 
+  List<Book> getAllBooksAvailable();
+
   Optional<Book> getBookByTitle(String title);
 }
