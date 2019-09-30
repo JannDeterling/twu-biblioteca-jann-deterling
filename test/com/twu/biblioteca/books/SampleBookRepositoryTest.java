@@ -1,9 +1,10 @@
 package com.twu.biblioteca.books;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -17,14 +18,15 @@ public class SampleBookRepositoryTest {
   public void shouldReturnListOfAllAvailableBooks() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
     List<Book> bookList = sampleBookRepository.getAllBooksAvailable();
-    assertNotNull(bookList);
-    assertNotEquals(bookList.size(), 0);
-    assertEquals(bookList.size(), 3);
+    assertThat(bookList, is(not(nullValue(List.class))));
+    assertThat(bookList.size(), is(not(equalTo(0))));
+    assertThat(bookList.size(), is(equalTo(3)));
+
     bookList.get(0).checkOutBook();
     bookList = sampleBookRepository.getAllBooksAvailable();
-    assertNotNull(bookList);
-    assertNotEquals(bookList.size(), 0);
-    assertEquals(bookList.size(), 2);
+    assertThat(bookList, is(not(nullValue(List.class))));
+    assertThat(bookList.size(), is(not(equalTo(0))));
+    assertThat(bookList.size(), is(equalTo(2)));
   }
 
   @Test
@@ -32,9 +34,9 @@ public class SampleBookRepositoryTest {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
     List<Book> bookList = sampleBookRepository.getAllBooks();
 
-    assertNotNull(bookList);
-    assertNotEquals(bookList.size(), 0);
-    assertEquals(bookList.size(), 3);
+    assertThat(bookList, is(not(nullValue(List.class))));
+    assertThat(bookList.size(), is(not(equalTo(0))));
+    assertThat(bookList.size(), is(equalTo(3)));
   }
 
   @Test
@@ -44,8 +46,8 @@ public class SampleBookRepositoryTest {
     Optional<Book> optionalBook = sampleBookRepository.getBookByTitle(title);
     assertTrue(optionalBook.isPresent());
     Book book = optionalBook.get();
-    assertNotNull(book);
-    assertEquals(title, book.getTitle());
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(title, is(equalTo(book.getTitle())));
   }
 
   @Test
@@ -53,6 +55,6 @@ public class SampleBookRepositoryTest {
     String title = "New Domain Driven Design";
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
     Optional<Book> optionalBook = sampleBookRepository.getBookByTitle(title);
-    assertFalse(optionalBook.isPresent());
+    assertThat(optionalBook.isPresent(), is(false));
   }
 }
