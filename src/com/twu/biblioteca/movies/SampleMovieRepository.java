@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SampleMovieRepository implements Repository<Movie> {
 
@@ -24,7 +25,7 @@ public class SampleMovieRepository implements Repository<Movie> {
 
     @Override
     public List<Movie> getAllAvailable() {
-        throw new NotImplementedException();
+        return this.SAMPLE_MOVIE_LIST.stream().filter(movie -> !movie.isCheckedOut()).collect(Collectors.toList());
     }
 
     @Override

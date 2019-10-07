@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/SampleMovieRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/SampleMovieRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieTest">
+  <component name="RunManager" selected="JUnit.SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -65,14 +64,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,13 +114,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.movies.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca.movies" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.movies.SampleMovieRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldReturnListOfAvailableMovies" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieTest.shouldCheckOutAMovie" />
         <item itemvalue="Application.BibliotecaApp" />
         <item itemvalue="JUnit.MovieServiceTest" />
-        <item itemvalue="JUnit.All in biblioteca" />
       </list>
     </recent_temporary>
   </component>
@@ -398,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570453568731</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="[Jann] [2.2] Adds checkOut functionality and test to Movie">
+      <created>1570454354378</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1570454354378</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -421,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.6] Adds MenuOption to quit the application, otherwise it awaits user actions" />
     <MESSAGE value="[Jann] [1.7] Adds TestCase to checkout a book" />
     <MESSAGE value="[Jann] [1.7] Adds Method to check out a book" />
     <MESSAGE value="[Jann] [1.7] Refactors book test cases" />
@@ -446,7 +459,8 @@
     <MESSAGE value="[Jann] [2.1] Adds MovieService and tests" />
     <MESSAGE value="[Jann] [2.1] Removes unused import" />
     <MESSAGE value="[Jann] [2.1] Register list available movie option in the main application" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Register list available movie option in the main application" />
+    <MESSAGE value="[Jann] [2.2] Adds checkOut functionality and test to Movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds checkOut functionality and test to Movie" />
   </component>
   <component name="masterDetails">
     <states>
