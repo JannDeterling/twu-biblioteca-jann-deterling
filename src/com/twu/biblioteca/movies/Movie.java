@@ -7,6 +7,7 @@ public class Movie {
      private String director;
      private Year publishedYear;
      private MovieRating movieRating;
+     private Boolean isCheckedOut;
 
      public Movie(String title, String director, Year publishedYear){
          this(title, director, publishedYear, new MovieRating(0));
@@ -17,6 +18,7 @@ public class Movie {
          this.setDirector(director);
          this.setPublishedYear(publishedYear);
          this.setMovieRating(movieRating);
+         this.isCheckedOut = false;
      }
 
     private void setTitle(String title) {
@@ -36,6 +38,19 @@ public class Movie {
 
     private void setMovieRating(MovieRating movieRating) {
          this.movieRating = movieRating;
+    }
+
+    public Boolean checkOut() {
+         if (this.isCheckedOut){
+             return false;
+         }else{
+             this.isCheckedOut = true;
+             return true;
+         }
+    }
+
+    public Boolean isCheckedOut() {
+        return isCheckedOut;
     }
 
     public String getTitle() {

@@ -27,6 +27,15 @@ public class MovieTest {
     }
 
     @Test
+    public void shouldCheckOutAMovie(){
+        final Movie movie = new Movie(TITLE, DIRECTOR, PUBLISHED_YEAR, MOVIE_RATING);
+        assertThat(movie.checkOut(), is(true));
+        assertThat(movie.isCheckedOut(), is(true));
+        assertThat(movie.checkOut(), is(false));
+        assertThat(movie.isCheckedOut(), is(true));
+    }
+
+    @Test
     public void shouldCreateAValidMovieWithoutRating(){
         final Movie movie = new Movie(TITLE, DIRECTOR, PUBLISHED_YEAR);
 
