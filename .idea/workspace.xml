@@ -55,7 +55,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieServiceTest.shouldCheckOutABook">
+  <component name="RunManager" selected="JUnit.MovieServiceTest">
     <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -135,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MovieServiceTest.shouldCheckOutABook" />
         <item itemvalue="JUnit.MovieServiceTest" />
+        <item itemvalue="JUnit.MovieServiceTest.shouldCheckOutABook" />
         <item itemvalue="JUnit.SampleMovieRepositoryTest" />
         <item itemvalue="JUnit.SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" />
         <item itemvalue="JUnit.MovieTest" />
@@ -443,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570455985754</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="[Jann] [2.2] Adds service method and test to check out a movie">
+      <created>1570456963498</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1570456963498</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -466,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.7] Adds Method to find a single book by name to Interface and Impl" />
     <MESSAGE value="[Jann] [1.7] Adds test case to find and finally checkout a book" />
     <MESSAGE value="[Jann] [1.7] Adds Method to find and finally check out a book" />
     <MESSAGE value="[Jann] [1.7] Adds new the &quot;Checkout Book&quot; MenuOption to the Biblioteca application" />
@@ -491,7 +497,8 @@
     <MESSAGE value="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo" />
     <MESSAGE value="[Jann] [2.2] Adds test to print only available movies + methods for the MovieService" />
     <MESSAGE value="[Jann] [2.2] Updates main application to list only the available movies" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Updates main application to list only the available movies" />
+    <MESSAGE value="[Jann] [2.2] Adds service method and test to check out a movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds service method and test to check out a movie" />
   </component>
   <component name="masterDetails">
     <states>

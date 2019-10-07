@@ -72,6 +72,35 @@ public class MovieServiceTest {
         assertThat(movie.isCheckedOut(), is(true));
     }
 
+    @Test
+    public void shouldNotDoubleCheckOutABook(){
+        StringBuilder expectedOutPut =  new StringBuilder();
+        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+                .append("Please enter the title of the movie you want to check out:")
+                .append(System.lineSeparator())
+                .append("Thank you! Enjoy the movie.")
+                .append(System.lineSeparator());
+
+        MovieService movieService = new MovieService(movieRepository);
+        this.provideTestInput("Lord of the Rings");
+        movieService.checkOutMovie();
+
+        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+                .append("Please enter the title of the movie you want to check out:")
+                .append(System.lineSeparator())
+                .append("Sorry, that book is not available.")
+                .append(System.lineSeparator());
+
+        this.provideTestInput("Lord of the Rings");
+        movieService.checkOutMovie();
+
+        assertThat(testOutput.toString(), is(equalTo(expectedOutPut.toString())));
+        Optional<Movie> movieOptional = movieRepository.getOneByTitle("Lord of the Rings");
+        assertThat(movieOptional.isPresent(), is(true));
+        Movie movie = movieOptional.get();
+        assertThat(movie.isCheckedOut(), is(true));
+    }
+
     private void provideTestInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
