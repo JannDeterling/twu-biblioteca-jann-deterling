@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] Updates workspace.xml">
       <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -294,7 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569762410328</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="[Jann] Updates workspace.xml">
+      <created>1570447506662</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1570447506662</updated>
+    </task>
+    <task id="LOCAL-00022" summary="[Jann] [2.1] Adds test cases for MovieRating">
+      <created>1570447625799</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1570447625799</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -339,7 +352,8 @@
     <MESSAGE value="[Jann] [1.7] Adds Method to find and finally check out a book" />
     <MESSAGE value="[Jann] [1.7] Adds new the &quot;Checkout Book&quot; MenuOption to the Biblioteca application" />
     <MESSAGE value="[Jann] Updates workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] Updates workspace.xml" />
+    <MESSAGE value="[Jann] [2.1] Adds test cases for MovieRating" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds test cases for MovieRating" />
   </component>
   <component name="masterDetails">
     <states>
