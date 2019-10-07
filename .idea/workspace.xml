@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] [2.1] Adds MovieTest class">
-      <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
+    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] [2.1] Adds Movie Class and updates test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,22 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieTest">
-    <configuration name="BookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.books.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca.books" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.books.BookServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating">
     <configuration name="BookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -116,6 +102,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MovieTest.shouldCreateAValidMovieWithoutRating" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.movies.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca.movies" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.movies.MovieTest" />
+      <option name="METHOD_NAME" value="shouldCreateAValidMovieWithoutRating" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.twu.biblioteca in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -132,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieRatingTest" />
         <item itemvalue="JUnit.BookTest" />
         <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
-        <item itemvalue="JUnit.BookServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -314,7 +316,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570447857541</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="[Jann] [2.1] Adds MovieTest class">
+      <created>1570448694845</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1570448694845</updated>
+    </task>
+    <task id="LOCAL-00025" summary="[Jann] [2.1] Adds Movie Class and updates test">
+      <created>1570448878769</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1570448878769</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -337,7 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.3] Update BookTest to test the new attributes of a Book" />
     <MESSAGE value="[Jann] [1.3] Update Book, adds the new attribute author and year" />
     <MESSAGE value="[Jann] [1.3] Update SampleBookRepository, change static sample data" />
     <MESSAGE value="[Jann] [1.3] Refactor BookServiceTest to simplify usage" />
@@ -361,7 +376,9 @@
     <MESSAGE value="[Jann] Updates workspace.xml" />
     <MESSAGE value="[Jann] [2.1] Adds test cases for MovieRating" />
     <MESSAGE value="[Jann] [2.1] Adds MovieRating Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds MovieRating Class" />
+    <MESSAGE value="[Jann] [2.1] Adds MovieTest class" />
+    <MESSAGE value="[Jann] [2.1] Adds Movie Class and updates test" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds Movie Class and updates test" />
   </component>
   <component name="masterDetails">
     <states>

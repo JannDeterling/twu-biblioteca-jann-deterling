@@ -10,20 +10,30 @@ import java.time.Year;
 
 public class MovieTest {
 
+    private static final String TITLE = "Lord of the Rings";
+    private static final String DIRECTOR = "Peter Jackson";
+    private static final Year PUBLISHED_YEAR = Year.of(2000);
+    private static final MovieRating MOVIE_RATING = new MovieRating(10);
+
     @Test
     public void shouldCreateAValidMovie(){
-        String title = "Lord of the Rings";
-        String director = "Peter Jackson";
-        Year publishedYear = Year.of(2000);
-        MovieRating movieRating = new MovieRating(10);
-
-        Movie  movie = new Movie(title, director, publishedYear, movieRating);
+        final Movie  movie = new Movie(TITLE, DIRECTOR, PUBLISHED_YEAR, MOVIE_RATING);
 
         assertThat(movie, is(not(nullValue(Movie.class))));
-        assertThat(movie.getTitle(), is(equalTo(title)));
-        assertThat(movie.getDirector(), is(equalTo(director)));
-        assertThat(movie.getPublishedYear(), is(equalTo(publishedYear)));
-        assertThat(movie.getMovieRating(), is(equalTo(movieRating)));
+        assertThat(movie.getTitle(), is(equalTo(TITLE)));
+        assertThat(movie.getDirector(), is(equalTo(DIRECTOR)));
+        assertThat(movie.getPublishedYear(), is(equalTo(PUBLISHED_YEAR)));
+        assertThat(movie.getMovieRating(), is(equalTo(MOVIE_RATING)));
     }
 
+    @Test
+    public void shouldCreateAValidMovieWithoutRating(){
+        final Movie movie = new Movie(TITLE, DIRECTOR, PUBLISHED_YEAR);
+
+        assertThat(movie, is(not(nullValue(Movie.class))));
+        assertThat(movie.getTitle(), is(equalTo(TITLE)));
+        assertThat(movie.getDirector(), is(equalTo(DIRECTOR)));
+        assertThat(movie.getPublishedYear(), is(equalTo(PUBLISHED_YEAR)));
+        assertThat(movie.getMovieRating().toString(), is(equalTo("unrated")));
+    }
 }

@@ -8,12 +8,32 @@ public class Movie {
      private Year publishedYear;
      private MovieRating movieRating;
 
-     public Movie(String title, String director, Year publishedYear, MovieRating movieRating){
-         this.title = title;
-         this.director = director;
-         this.publishedYear = publishedYear;
-         this.movieRating = movieRating;
+     public Movie(String title, String director, Year publishedYear){
+         this(title, director, publishedYear, new MovieRating(0));
      }
+
+     public Movie(String title, String director, Year publishedYear, MovieRating movieRating){
+         this.setTitle(title);
+         this.setDirector(director);
+         this.setPublishedYear(publishedYear);
+         this.setMovieRating(movieRating);
+     }
+
+    private void setTitle(String title) {
+        this.title = title;
+    }
+
+    private void setDirector(String director) {
+        this.director = director;
+    }
+
+    private void setPublishedYear(Year publishedYear) {
+        this.publishedYear = publishedYear;
+    }
+
+    private void setMovieRating(MovieRating movieRating) {
+        this.movieRating = movieRating;
+    }
 
     public String getTitle() {
         return title;
