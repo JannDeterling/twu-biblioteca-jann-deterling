@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/SampleBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/books/SampleBookRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,18 +57,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieTest">
-    <configuration name="BookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in biblioteca">
+    <configuration name="All in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.books.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca.books" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.books.BookTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,27 +112,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.twu.biblioteca in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SampleMovieRepositoryTest.shouldReturnListOfMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.movies.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca.movies" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.movies.SampleMovieRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldReturnListOfMovies" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in biblioteca" />
+        <item itemvalue="JUnit.SampleMovieRepositoryTest.shouldReturnListOfMovies" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating" />
         <item itemvalue="JUnit.MovieRatingTest" />
-        <item itemvalue="JUnit.BookTest" />
-        <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
       </list>
     </recent_temporary>
   </component>
@@ -343,7 +340,28 @@
       <option name="project" value="LOCAL" />
       <updated>1570450076078</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="[Jann] [2.1] Adds assertion to movie director">
+      <created>1570450228770</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1570450228770</updated>
+    </task>
+    <task id="LOCAL-00029" summary="[Jann] [2.1] Adds assertion to movie publishedYear">
+      <created>1570450339051</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1570450339051</updated>
+    </task>
+    <task id="LOCAL-00030" summary="[Jann] [2.1] Adds toString to Movie">
+      <created>1570450455730</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1570450455730</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -366,9 +384,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.3] Refactor BookServiceTest to simplify usage" />
-    <MESSAGE value="[Jann] [1.4] Adds MenuOption class and MenuAction interface&#10;&#10;The menu option stores a description, index and a callable function that will be called when ever the option is selected." />
-    <MESSAGE value="[Jann] [1.4] Adds MenuOptionTest class" />
     <MESSAGE value="[Jann] [1.4] Adds MainMenu class&#10;&#10;The main menu is used to display all menu option and awaits the users choice.&#10;Based on users choice the related menu option will be called." />
     <MESSAGE value="[Jann] [1.4] Adds MainMenuTest class" />
     <MESSAGE value="[Jann] [1.4] Change main process of the App add MainMenu usage" />
@@ -391,7 +406,10 @@
     <MESSAGE value="[Jann] [2.1] Adds Movie Class and updates test" />
     <MESSAGE value="[Jann] [2.1] Updates new constructor to Movie class and adds new test" />
     <MESSAGE value="[Jann] [2.1] Adds assertion to movie title" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds assertion to movie title" />
+    <MESSAGE value="[Jann] [2.1] Adds assertion to movie director" />
+    <MESSAGE value="[Jann] [2.1] Adds assertion to movie publishedYear" />
+    <MESSAGE value="[Jann] [2.1] Adds toString to Movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds toString to Movie" />
   </component>
   <component name="masterDetails">
     <states>

@@ -36,7 +36,7 @@ public class BookServiceTest {
   @Test
   public void shouldPrintAllBooksFromTheRepository() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    final String expectedOutcome = this.expectedPrintedBooks(sampleBookRepository.getAllBooks());
+    final String expectedOutcome = this.expectedPrintedBooks(sampleBookRepository.getAll());
     final BookService bookService = new BookService(sampleBookRepository);
     bookService.printBookList();
     assertThat(expectedOutcome, is(equalTo(testOutput.toString())));
@@ -46,7 +46,7 @@ public class BookServiceTest {
   public void shouldCheckoutABook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutput = new StringBuilder();
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -61,7 +61,7 @@ public class BookServiceTest {
   public void shouldNotCheckoutANonExistingBook() {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutput = new StringBuilder();
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
@@ -77,7 +77,7 @@ public class BookServiceTest {
     final SampleBookRepository sampleBookRepository = new SampleBookRepository();
     final StringBuilder expectedOutput = new StringBuilder();
 
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -86,7 +86,7 @@ public class BookServiceTest {
     this.provideTestInput("Domain Driven Design");
     bookService.checkOutBook();
 
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Sorry, that book is not available.")
@@ -103,7 +103,7 @@ public class BookServiceTest {
     final StringBuilder expectedOutput = new StringBuilder();
     final BookService bookService = new BookService(sampleBookRepository);
 
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()))
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()))
         .append("Please enter the title of the book you want to check out:")
         .append(System.lineSeparator())
         .append("Thank you! Enjoy the book.")
@@ -119,7 +119,7 @@ public class BookServiceTest {
     bookService.returnBook();
 
     bookService.printAvailableBookList();
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()));
 
     assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
@@ -137,7 +137,7 @@ public class BookServiceTest {
     bookService.returnBook();
 
     bookService.printAvailableBookList();
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()));
     assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 
@@ -154,7 +154,7 @@ public class BookServiceTest {
     bookService.returnBook();
 
     bookService.printAvailableBookList();
-    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllBooksAvailable()));
+    expectedOutput.append(this.expectedPrintedBooks(sampleBookRepository.getAllAvailable()));
     assertThat(expectedOutput.toString(), is(equalTo(testOutput.toString())));
   }
 

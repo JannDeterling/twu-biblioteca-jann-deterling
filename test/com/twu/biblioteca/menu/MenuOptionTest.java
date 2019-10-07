@@ -46,7 +46,7 @@ public class MenuOptionTest {
     assertThat(testOutput.toString(), is(not(equalTo(""))));
 
 
-    List<Book> books = sampleBookRepository.getAllBooks();
+    List<Book> books = sampleBookRepository.getAll();
     final StringBuilder expectedOutput = new StringBuilder();
     books.forEach(book -> expectedOutput.append(book.toString()).append(System.lineSeparator()));
 

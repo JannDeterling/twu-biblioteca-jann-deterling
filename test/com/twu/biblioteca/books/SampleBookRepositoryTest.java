@@ -17,13 +17,13 @@ public class SampleBookRepositoryTest {
   @Test
   public void shouldReturnListOfAllAvailableBooks() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    List<Book> bookList = sampleBookRepository.getAllBooksAvailable();
+    List<Book> bookList = sampleBookRepository.getAllAvailable();
     assertThat(bookList, is(not(nullValue(List.class))));
     assertThat(bookList.size(), is(not(equalTo(0))));
     assertThat(bookList.size(), is(equalTo(3)));
 
     bookList.get(0).checkOutBook();
-    bookList = sampleBookRepository.getAllBooksAvailable();
+    bookList = sampleBookRepository.getAllAvailable();
     assertThat(bookList, is(not(nullValue(List.class))));
     assertThat(bookList.size(), is(not(equalTo(0))));
     assertThat(bookList.size(), is(equalTo(2)));
@@ -32,7 +32,7 @@ public class SampleBookRepositoryTest {
   @Test
   public void shouldReturnListOfAllBooks() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    List<Book> bookList = sampleBookRepository.getAllBooks();
+    List<Book> bookList = sampleBookRepository.getAll();
 
     assertThat(bookList, is(not(nullValue(List.class))));
     assertThat(bookList.size(), is(not(equalTo(0))));
@@ -43,7 +43,7 @@ public class SampleBookRepositoryTest {
   public void shouldGetBookByTitle(){
     String title = "Domain Driven Design";
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    Optional<Book> optionalBook = sampleBookRepository.getBookByTitle(title);
+    Optional<Book> optionalBook = sampleBookRepository.getOneByTitle(title);
     assertTrue(optionalBook.isPresent());
     Book book = optionalBook.get();
     assertThat(book, is(not(nullValue(Book.class))));
@@ -54,7 +54,7 @@ public class SampleBookRepositoryTest {
   public void shouldNotGetBookByTitle(){
     String title = "New Domain Driven Design";
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    Optional<Book> optionalBook = sampleBookRepository.getBookByTitle(title);
+    Optional<Book> optionalBook = sampleBookRepository.getOneByTitle(title);
     assertThat(optionalBook.isPresent(), is(false));
   }
 }

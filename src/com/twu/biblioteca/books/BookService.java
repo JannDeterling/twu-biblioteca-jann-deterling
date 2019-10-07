@@ -1,22 +1,24 @@
 package com.twu.biblioteca.books;
 
+import com.twu.biblioteca.core.Repository;
+
 import java.util.Optional;
 import java.util.Scanner;
 
 public class BookService {
 
-  private BookRepository bookRepository;
+  private Repository<Book> bookRepository;
 
-  public BookService(BookRepository bookRepository) {
+  public BookService(Repository<Book> bookRepository) {
     this.bookRepository = bookRepository;
   }
 
   public void printBookList() {
-    this.bookRepository.getAllBooks().forEach(book -> System.out.println(book.toString()));
+    this.bookRepository.getAll().forEach(book -> System.out.println(book.toString()));
   }
 
   public void printAvailableBookList() {
-    this.bookRepository.getAllBooksAvailable().forEach(book -> System.out.println(book.toString()));
+    this.bookRepository.getAllAvailable().forEach(book -> System.out.println(book.toString()));
   }
 
   public void checkOutBook() {
@@ -65,7 +67,7 @@ public class BookService {
     final Scanner scanner = new Scanner(System.in);
     System.out.println(messageToDisplay);
     String title = scanner.nextLine();
-    return this.bookRepository.getBookByTitle(title);
+    return this.bookRepository.getOneByTitle(title);
   }
 
 }

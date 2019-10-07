@@ -80,7 +80,7 @@ public class MainMenuTest {
         .append("Please select a option (enter the number):")
         .append(System.lineSeparator());
 
-    List<Book> books = sampleBookRepository.getAllBooks();
+    List<Book> books = sampleBookRepository.getAll();
     books.forEach(book -> expectedOutput.append(book.toString()).append(System.lineSeparator()));
 
     assertThat(testOut.toString(), is(not(equalTo(""))));
@@ -111,7 +111,7 @@ public class MainMenuTest {
         .append("Please select a option (enter the number):")
         .append(System.lineSeparator());
 
-    List<Book> books = sampleBookRepository.getAllBooks();
+    List<Book> books = sampleBookRepository.getAll();
     books.forEach(book -> stringBuilder.append(book.toString()).append(System.lineSeparator()));
 
     assertThat(testOut.toString(), is(not(equalTo(""))));
