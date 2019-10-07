@@ -53,6 +53,25 @@ public class MovieServiceTest {
         assertThat(testOutput.toString(), is(equalTo(expectedPrintedBooks(this.movieRepository.getAllAvailable()))));
     }
 
+    @Test
+    public void shouldCheckOutABook(){
+        StringBuilder expectedOutPut =  new StringBuilder();
+        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+                .append("Please enter the title of the movie you want to check out:")
+                .append(System.lineSeparator())
+                .append("Thank you! Enjoy the movie.")
+                .append(System.lineSeparator());
+        MovieService movieService = new MovieService(movieRepository);
+
+        this.provideTestInput("Lord of the Rings");
+        movieService.checkOutMovie();
+        assertThat(testOutput.toString(), is(equalTo(expectedOutPut.toString())));
+        Optional<Movie> movieOptional = movieRepository.getOneByTitle("Lord of the Rings");
+        assertThat(movieOptional.isPresent(), is(true));
+        Movie movie = movieOptional.get();
+        assertThat(movie.isCheckedOut(), is(true));
+    }
+
     private void provideTestInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
