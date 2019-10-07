@@ -23,7 +23,7 @@ public class MovieTest {
         assertThat(movie.getTitle(), is(equalTo(title)));
         assertThat(movie.getDirector(), is(equalTo(director)));
         assertThat(movie.getPublishedYear(), is(equalTo(publishedYear)));
-        assertThat(movie.getMovieRating, is(equalTo(movieRating)));
+        assertThat(movie.getMovieRating(), is(equalTo(movieRating)));
     }
 
 }
