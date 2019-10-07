@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -430,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570455464277</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="[Jann] [2.2] Adds test to print only available movies + methods for the MovieService">
+      <created>1570455922070</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1570455922070</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -453,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.7] Refactors book test cases" />
     <MESSAGE value="[Jann] [1.7] Adds test case to find a single book by name" />
     <MESSAGE value="[Jann] [1.7] Adds Method to find a single book by name to Interface and Impl" />
     <MESSAGE value="[Jann] [1.7] Adds test case to find and finally checkout a book" />
@@ -478,7 +482,8 @@
     <MESSAGE value="[Jann] [2.2] Adds checkOut functionality and test to Movie" />
     <MESSAGE value="[Jann] [2.2] Adds test to view only available books, adds functionality in SampleMovieRepo" />
     <MESSAGE value="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo" />
+    <MESSAGE value="[Jann] [2.2] Adds test to print only available movies + methods for the MovieService" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds test to print only available movies + methods for the MovieService" />
   </component>
   <component name="masterDetails">
     <states>
