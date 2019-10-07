@@ -30,6 +30,6 @@ public class SampleMovieRepository implements Repository<Movie> {
 
     @Override
     public Optional<Movie> getOneByTitle(String title) {
-        throw new NotImplementedException();
+        return this.SAMPLE_MOVIE_LIST.stream().filter(movie -> movie.getTitle().equals(title)).findFirst();
     }
 }
