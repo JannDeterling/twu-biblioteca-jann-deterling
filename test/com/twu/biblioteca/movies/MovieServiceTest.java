@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
@@ -38,9 +39,18 @@ public class MovieServiceTest {
     @Test
     public void shouldPrintAllBooks(){
         MovieService movieService = new MovieService(movieRepository);
-        movieService.printMovieList();
-
+        movieService.printAllMovies();
         assertThat(testOutput.toString(), is(equalTo(expectedPrintedBooks(this.movieRepository.getAll()))));
+    }
+
+    @Test
+    public void shouldOnlyPrintAvailableBooks(){
+        Optional<Movie> movieOptional = movieRepository.getOneByTitle("Lord of the Rings");
+        movieOptional.ifPresent(Movie::checkOut);
+
+        MovieService movieService = new MovieService(movieRepository);
+        movieService.printAvailableMovies();
+        assertThat(testOutput.toString(), is(equalTo(expectedPrintedBooks(this.movieRepository.getAllAvailable()))));
     }
 
     private void provideTestInput(String data) {

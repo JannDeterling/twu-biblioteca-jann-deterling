@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/SampleMovieRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/SampleMovieRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,16 +56,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SampleMovieRepositoryTest">
-    <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
+  <component name="RunManager" selected="JUnit.MovieServiceTest">
+    <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="PATTERN" value="com.twu.biblioteca.movies.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca.movies" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.movies.MovieServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MovieServiceTest" />
         <item itemvalue="JUnit.SampleMovieRepositoryTest" />
         <item itemvalue="JUnit.SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" />
         <item itemvalue="JUnit.MovieTest" />
         <item itemvalue="JUnit.MovieTest.shouldCheckOutAMovie" />
-        <item itemvalue="Application.BibliotecaApp" />
       </list>
     </recent_temporary>
   </component>
@@ -420,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570454908152</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo">
+      <created>1570455464277</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1570455464277</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -443,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.7] Adds Method to check out a book" />
     <MESSAGE value="[Jann] [1.7] Refactors book test cases" />
     <MESSAGE value="[Jann] [1.7] Adds test case to find a single book by name" />
     <MESSAGE value="[Jann] [1.7] Adds Method to find a single book by name to Interface and Impl" />
@@ -468,7 +477,8 @@
     <MESSAGE value="[Jann] [2.1] Register list available movie option in the main application" />
     <MESSAGE value="[Jann] [2.2] Adds checkOut functionality and test to Movie" />
     <MESSAGE value="[Jann] [2.2] Adds test to view only available books, adds functionality in SampleMovieRepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds test to view only available books, adds functionality in SampleMovieRepo" />
+    <MESSAGE value="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Adds test to get only one book and adds the functionality to the SampleMovieRepo" />
   </component>
   <component name="masterDetails">
     <states>
