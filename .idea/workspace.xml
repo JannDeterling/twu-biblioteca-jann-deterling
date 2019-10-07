@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/books/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/books/SampleBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/books/SampleBookRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -361,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570450455730</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="[Jann] [2.1] Adds new abstraction Repository, refactors SampleBookRepository">
+      <created>1570451405340</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1570451405340</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -384,7 +388,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.4] Adds MainMenu class&#10;&#10;The main menu is used to display all menu option and awaits the users choice.&#10;Based on users choice the related menu option will be called." />
     <MESSAGE value="[Jann] [1.4] Adds MainMenuTest class" />
     <MESSAGE value="[Jann] [1.4] Change main process of the App add MainMenu usage" />
     <MESSAGE value="[Jann] [1.5] Adds retry option with error message" />
@@ -409,7 +412,8 @@
     <MESSAGE value="[Jann] [2.1] Adds assertion to movie director" />
     <MESSAGE value="[Jann] [2.1] Adds assertion to movie publishedYear" />
     <MESSAGE value="[Jann] [2.1] Adds toString to Movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds toString to Movie" />
+    <MESSAGE value="[Jann] [2.1] Adds new abstraction Repository, refactors SampleBookRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds new abstraction Repository, refactors SampleBookRepository" />
   </component>
   <component name="masterDetails">
     <states>
