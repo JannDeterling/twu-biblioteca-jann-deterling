@@ -56,4 +56,9 @@ public class MovieTest {
     public void shouldNotCreateAValidMovieWithNullDirector(){
         new Movie( TITLE, null, PUBLISHED_YEAR);
     }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotCreateAValidMovieWithNullPublishedYear(){
+        new Movie(TITLE, DIRECTOR, null);
+    }
 }

@@ -30,6 +30,7 @@ public class Movie {
     }
 
     private void setPublishedYear(Year publishedYear) {
+         assert publishedYear != null : "The publishedYear should not be null";
          this.publishedYear = publishedYear;
     }
 
