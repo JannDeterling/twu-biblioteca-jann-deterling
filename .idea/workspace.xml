@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] Updates workspace.xml">
+    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] [2.1] Adds MovieTest class">
       <change afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -307,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570447625799</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="[Jann] [2.1] Adds MovieRating Class">
+      <created>1570447857541</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1570447857541</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -353,7 +361,8 @@
     <MESSAGE value="[Jann] [1.7] Adds new the &quot;Checkout Book&quot; MenuOption to the Biblioteca application" />
     <MESSAGE value="[Jann] Updates workspace.xml" />
     <MESSAGE value="[Jann] [2.1] Adds test cases for MovieRating" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds test cases for MovieRating" />
+    <MESSAGE value="[Jann] [2.1] Adds MovieRating Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds MovieRating Class" />
   </component>
   <component name="masterDetails">
     <states>
