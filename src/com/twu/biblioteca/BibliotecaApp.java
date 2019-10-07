@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.books.BookService;
 import com.twu.biblioteca.books.SampleBookRepository;
 import com.twu.biblioteca.menu.MainMenu;
+import com.twu.biblioteca.movies.MovieService;
+import com.twu.biblioteca.movies.SampleMovieRepository;
 
 public class BibliotecaApp {
 
@@ -12,11 +14,14 @@ public class BibliotecaApp {
         WelcomeMessagePrinter.printWelcomeMessage();
 
         BookService bookService = new BookService(new SampleBookRepository());
+        MovieService movieService = new MovieService(new SampleMovieRepository());
 
         MainMenu mainMenu = new MainMenu();
         mainMenu.registerMenuOption("List available books", bookService::printAvailableBookList);
         mainMenu.registerMenuOption("Check out a book", bookService::checkOutBook);
         mainMenu.registerMenuOption("Return a book", bookService::returnBook);
+
+        mainMenu.registerMenuOption("List available movies", movieService::printMovieList);
 
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
         while (!shouldQuit) {
