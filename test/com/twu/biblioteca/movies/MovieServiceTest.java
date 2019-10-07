@@ -40,7 +40,7 @@ public class MovieServiceTest {
     public void shouldPrintAllBooks(){
         MovieService movieService = new MovieService(movieRepository);
         movieService.printAllMovies();
-        assertThat(testOutput.toString(), is(equalTo(expectedPrintedBooks(this.movieRepository.getAll()))));
+        assertThat(testOutput.toString(), is(equalTo(expectedPrintedMovies(this.movieRepository.getAll()))));
     }
 
     @Test
@@ -50,13 +50,13 @@ public class MovieServiceTest {
 
         MovieService movieService = new MovieService(movieRepository);
         movieService.printAvailableMovies();
-        assertThat(testOutput.toString(), is(equalTo(expectedPrintedBooks(this.movieRepository.getAllAvailable()))));
+        assertThat(testOutput.toString(), is(equalTo(expectedPrintedMovies(this.movieRepository.getAllAvailable()))));
     }
 
     @Test
-    public void shouldCheckOutABook(){
+    public void shouldCheckOutAMovie(){
         StringBuilder expectedOutPut =  new StringBuilder();
-        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+        expectedOutPut.append(expectedPrintedMovies(movieRepository.getAllAvailable()))
                 .append("Please enter the title of the movie you want to check out:")
                 .append(System.lineSeparator())
                 .append("Thank you! Enjoy the movie.")
@@ -73,9 +73,24 @@ public class MovieServiceTest {
     }
 
     @Test
-    public void shouldNotDoubleCheckOutABook(){
+    public void shouldNotCheckOutAMovie(){
         StringBuilder expectedOutPut =  new StringBuilder();
-        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+        expectedOutPut.append(expectedPrintedMovies(movieRepository.getAllAvailable()))
+                .append("Please enter the title of the movie you want to check out:")
+                .append(System.lineSeparator())
+                .append("Sorry, that movie is not available.")
+                .append(System.lineSeparator());
+        MovieService movieService = new MovieService(movieRepository);
+
+        this.provideTestInput("Lord of the Rings 2");
+        movieService.checkOutMovie();
+        assertThat(testOutput.toString(), is(equalTo(expectedOutPut.toString())));
+    }
+
+    @Test
+    public void shouldNotDoubleCheckOutAMovie(){
+        StringBuilder expectedOutPut =  new StringBuilder();
+        expectedOutPut.append(expectedPrintedMovies(movieRepository.getAllAvailable()))
                 .append("Please enter the title of the movie you want to check out:")
                 .append(System.lineSeparator())
                 .append("Thank you! Enjoy the movie.")
@@ -85,10 +100,10 @@ public class MovieServiceTest {
         this.provideTestInput("Lord of the Rings");
         movieService.checkOutMovie();
 
-        expectedOutPut.append(expectedPrintedBooks(movieRepository.getAllAvailable()))
+        expectedOutPut.append(expectedPrintedMovies(movieRepository.getAllAvailable()))
                 .append("Please enter the title of the movie you want to check out:")
                 .append(System.lineSeparator())
-                .append("Sorry, that book is not available.")
+                .append("Sorry, that movie is not available.")
                 .append(System.lineSeparator());
 
         this.provideTestInput("Lord of the Rings");
@@ -106,7 +121,7 @@ public class MovieServiceTest {
         System.setIn(testIn);
     }
 
-    private String expectedPrintedBooks(List<Movie> movies) {
+    private String expectedPrintedMovies(List<Movie> movies) {
         final StringBuilder stringBuilder = new StringBuilder();
         movies.forEach(movie -> stringBuilder.append(movie.toString()).append(System.lineSeparator()));
         return stringBuilder.toString();

@@ -26,13 +26,18 @@ public class MovieService {
     public void checkOutMovie() {
         this.printAvailableMovies();
         Optional<Movie> movieOptional = this.findMovieForUsageAction("Please enter the title of the movie you want to check out:");
+
+        String errorMsg = "Sorry, that movie is not available.";
+
         if(movieOptional.isPresent()) {
             Movie movie = movieOptional.get();
             if(movie.checkOut()){
                 System.out.println("Thank you! Enjoy the movie.");
             }else {
-                System.out.println("Sorry, that book is not available.");
+                System.out.println(errorMsg);
             }
+        }else {
+            System.out.println(errorMsg);
         }
     }
 
