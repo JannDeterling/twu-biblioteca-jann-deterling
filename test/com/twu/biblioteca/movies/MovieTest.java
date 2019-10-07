@@ -36,4 +36,14 @@ public class MovieTest {
         assertThat(movie.getPublishedYear(), is(equalTo(PUBLISHED_YEAR)));
         assertThat(movie.getMovieRating().toString(), is(equalTo("unrated")));
     }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotCreateAValidMovieWithoutTitle(){
+        new Movie("", DIRECTOR, PUBLISHED_YEAR, MOVIE_RATING);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotCreateAValidMovieWithNullTitle(){
+        new Movie(null, DIRECTOR, PUBLISHED_YEAR, MOVIE_RATING);
+    }
 }

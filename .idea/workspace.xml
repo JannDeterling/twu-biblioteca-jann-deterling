@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] [2.1] Adds Movie Class and updates test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/Movie.java" afterDir="false" />
+    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating">
+  <component name="RunManager" selected="JUnit.MovieTest">
     <configuration name="BookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -134,8 +132,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating" />
         <item itemvalue="JUnit.MovieTest" />
+        <item itemvalue="JUnit.MovieTest.shouldCreateAValidMovieWithoutRating" />
         <item itemvalue="JUnit.MovieRatingTest" />
         <item itemvalue="JUnit.BookTest" />
         <item itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
@@ -330,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570448878769</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="[Jann] [2.1] Updates new constructor to Movie class and adds new test">
+      <created>1570449696444</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1570449696444</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -353,7 +358,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.3] Update Book, adds the new attribute author and year" />
     <MESSAGE value="[Jann] [1.3] Update SampleBookRepository, change static sample data" />
     <MESSAGE value="[Jann] [1.3] Refactor BookServiceTest to simplify usage" />
     <MESSAGE value="[Jann] [1.4] Adds MenuOption class and MenuAction interface&#10;&#10;The menu option stores a description, index and a callable function that will be called when ever the option is selected." />
@@ -378,7 +382,8 @@
     <MESSAGE value="[Jann] [2.1] Adds MovieRating Class" />
     <MESSAGE value="[Jann] [2.1] Adds MovieTest class" />
     <MESSAGE value="[Jann] [2.1] Adds Movie Class and updates test" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds Movie Class and updates test" />
+    <MESSAGE value="[Jann] [2.1] Updates new constructor to Movie class and adds new test" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Updates new constructor to Movie class and adds new test" />
   </component>
   <component name="masterDetails">
     <states>

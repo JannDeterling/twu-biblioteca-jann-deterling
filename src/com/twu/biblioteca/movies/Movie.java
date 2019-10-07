@@ -20,7 +20,8 @@ public class Movie {
      }
 
     private void setTitle(String title) {
-        this.title = title;
+         assert title != null && !title.equals("") : "The movie title should not be empty or null";
+         this.title = title;
     }
 
     private void setDirector(String director) {
