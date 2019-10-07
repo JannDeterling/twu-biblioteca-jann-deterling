@@ -2,6 +2,7 @@ package com.twu.biblioteca.movies;
 
 import com.twu.biblioteca.books.Book;
 import com.twu.biblioteca.core.Repository;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -24,11 +25,11 @@ public class SampleMovieRepository implements Repository<Movie> {
 
     @Override
     public List<Movie> getAllAvailable() {
-        return null;
+        throw new NotImplementedException();
     }
 
     @Override
     public Optional<Movie> getOneByTitle(String title) {
-        return Optional.empty();
+        throw new NotImplementedException();
     }
 }

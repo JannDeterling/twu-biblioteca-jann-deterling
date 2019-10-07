@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/SampleMovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/SampleMovieRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570451405340</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="[Jann] [2.1] Adds first test for SampleMovieRepository and the implementation">
+      <created>1570451856263</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1570451856263</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -388,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.4] Adds MainMenuTest class" />
     <MESSAGE value="[Jann] [1.4] Change main process of the App add MainMenu usage" />
     <MESSAGE value="[Jann] [1.5] Adds retry option with error message" />
     <MESSAGE value="[Jann] [1.5] Add test case to MainMenuTest for the retry option" />
@@ -413,7 +419,8 @@
     <MESSAGE value="[Jann] [2.1] Adds assertion to movie publishedYear" />
     <MESSAGE value="[Jann] [2.1] Adds toString to Movie" />
     <MESSAGE value="[Jann] [2.1] Adds new abstraction Repository, refactors SampleBookRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds new abstraction Repository, refactors SampleBookRepository" />
+    <MESSAGE value="[Jann] [2.1] Adds first test for SampleMovieRepository and the implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.1] Adds first test for SampleMovieRepository and the implementation" />
   </component>
   <component name="masterDetails">
     <states>
