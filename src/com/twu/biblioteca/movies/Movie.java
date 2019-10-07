@@ -53,4 +53,14 @@ public class Movie {
     public MovieRating getMovieRating() {
         return movieRating;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", director='" + director + '\'' +
+                ", publishedYear=" + publishedYear +
+                ", movieRating=" + movieRating +
+                '}';
+    }
 }
