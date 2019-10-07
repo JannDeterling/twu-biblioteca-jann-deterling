@@ -1,6 +1,5 @@
 package com.twu.biblioteca.movies;
 
-import com.twu.biblioteca.books.Book;
 import com.twu.biblioteca.core.Repository;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
