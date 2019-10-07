@@ -25,15 +25,16 @@ public class Movie {
     }
 
     private void setDirector(String director) {
-        this.director = director;
+         assert director != null && !director.equals("") : "The movie director should not be empty or null";
+         this.director = director;
     }
 
     private void setPublishedYear(Year publishedYear) {
-        this.publishedYear = publishedYear;
+         this.publishedYear = publishedYear;
     }
 
     private void setMovieRating(MovieRating movieRating) {
-        this.movieRating = movieRating;
+         this.movieRating = movieRating;
     }
 
     public String getTitle() {

@@ -46,4 +46,14 @@ public class MovieTest {
     public void shouldNotCreateAValidMovieWithNullTitle(){
         new Movie(null, DIRECTOR, PUBLISHED_YEAR, MOVIE_RATING);
     }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotCreateAValidMovieWithoutDirector(){
+        new Movie( TITLE, "", PUBLISHED_YEAR);
+    }
+
+    @Test(expected = AssertionError.class)
+    public void shouldNotCreateAValidMovieWithNullDirector(){
+        new Movie( TITLE, null, PUBLISHED_YEAR);
+    }
 }
