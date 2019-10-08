@@ -1,6 +1,7 @@
 package com.twu.biblioteca.movies;
 
 import com.twu.biblioteca.books.Book;
+import com.twu.biblioteca.core.LibraryItemRepository;
 import com.twu.biblioteca.core.Repository;
 
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.Scanner;
 
 public class MovieService {
 
-    private final Repository<Movie> movieRepository;
+    private final LibraryItemRepository<Movie> movieRepository;
 
-    public MovieService(Repository<Movie> movieRepository){
+    public MovieService(LibraryItemRepository<Movie> movieRepository){
         this.movieRepository = movieRepository;
     }
 

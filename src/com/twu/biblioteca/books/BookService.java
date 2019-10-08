@@ -1,5 +1,6 @@
 package com.twu.biblioteca.books;
 
+import com.twu.biblioteca.core.LibraryItemRepository;
 import com.twu.biblioteca.core.Repository;
 
 import java.util.Optional;
@@ -7,9 +8,9 @@ import java.util.Scanner;
 
 public class BookService {
 
-  private Repository<Book> bookRepository;
+  private LibraryItemRepository<Book> bookRepository;
 
-  public BookService(Repository<Book> bookRepository) {
+  public BookService(LibraryItemRepository<Book> bookRepository) {
     this.bookRepository = bookRepository;
   }
 

@@ -1,5 +1,6 @@
 package com.twu.biblioteca.movies;
 
+import com.twu.biblioteca.core.LibraryItemRepository;
 import com.twu.biblioteca.core.Repository;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class SampleMovieRepository implements Repository<Movie> {
+public class SampleMovieRepository implements LibraryItemRepository<Movie> {
 
     private final List<Movie> SAMPLE_MOVIE_LIST = new ArrayList<Movie>(Arrays.asList(
             new Movie("Lord of the Rings", "Peter Jackson", Year.of(2000), new MovieRating(10)),

@@ -1,5 +1,6 @@
 package com.twu.biblioteca.books;
 
+import com.twu.biblioteca.core.LibraryItemRepository;
 import com.twu.biblioteca.core.Repository;
 
 import java.time.Year;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class SampleBookRepository implements Repository<Book> {
+public class SampleBookRepository implements LibraryItemRepository<Book> {
 
   private final List<Book> SAMPLE_BOOK_LIST = new ArrayList<Book>(Arrays.asList(
       new Book("Refactoring: Improving the Design of Existing Code (2nd Edition)", "Martin Fowler", Year.of(2018)),

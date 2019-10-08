@@ -7,7 +7,4 @@ public interface Repository<T> {
 
     List<T> getAll();
 
-    List<T> getAllAvailable();
-
-    Optional<T> getOneByTitle(String title);
 }
