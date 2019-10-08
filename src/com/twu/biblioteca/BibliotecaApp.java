@@ -5,6 +5,8 @@ import com.twu.biblioteca.books.SampleBookRepository;
 import com.twu.biblioteca.menu.MainMenu;
 import com.twu.biblioteca.movies.MovieService;
 import com.twu.biblioteca.movies.SampleMovieRepository;
+import com.twu.biblioteca.users.SampleUserRepository;
+import com.twu.biblioteca.users.UserService;
 
 public class BibliotecaApp {
 
@@ -13,7 +15,8 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         WelcomeMessagePrinter.printWelcomeMessage();
 
-        BookService bookService = new BookService(new SampleBookRepository());
+        UserService userService = new UserService(new SampleUserRepository());
+        BookService bookService = new BookService(new SampleBookRepository(), userService);
         MovieService movieService = new MovieService(new SampleMovieRepository());
 
         MainMenu mainMenu = new MainMenu();
