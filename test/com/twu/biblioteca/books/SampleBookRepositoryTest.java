@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import com.twu.biblioteca.users.User;
 import org.junit.Test;
 
 import java.util.List;
@@ -17,12 +18,14 @@ public class SampleBookRepositoryTest {
   @Test
   public void shouldReturnListOfAllAvailableBooks() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
+    User user = new User("012-3456", "test123");
+    user.login("test123");
     List<Book> bookList = sampleBookRepository.getAllAvailable();
     assertThat(bookList, is(not(nullValue(List.class))));
     assertThat(bookList.size(), is(not(equalTo(0))));
     assertThat(bookList.size(), is(equalTo(3)));
 
-    bookList.get(0).checkOutBook();
+    bookList.get(0).checkOutBook(user);
     bookList = sampleBookRepository.getAllAvailable();
     assertThat(bookList, is(not(nullValue(List.class))));
     assertThat(bookList.size(), is(not(equalTo(0))));
