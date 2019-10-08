@@ -13,6 +13,14 @@ public class UserService {
         this.sampleUserRepository = sampleUserRepository;
     }
 
+    public void printLoggedInUserInformation(){
+        Optional<User> userOptional = LoggedInUserSingleton.getInstance().getLoggedInUser();
+        if (userOptional.isPresent() && userOptional.get().isLoggedIn()){
+            User user = userOptional.get();
+            System.out.println(user.toString());
+        }
+    }
+
     public void loginUser(){
         Optional<User> userOptional = this.getUserInteractiveByLibraryNumber();
         if (userOptional.isPresent()) {
