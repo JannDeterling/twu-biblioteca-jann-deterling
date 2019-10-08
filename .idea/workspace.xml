@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/movies/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/movies/MovieServiceTest.java" afterDir="false" />
+    <list default="true" id="a13af2f2-2baf-4e8c-b554-8a8934bcf0ee" name="Default Changelist" comment="[Jann] [2.2] Update service method and adds test to not check out a non existent movie">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +55,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieServiceTest">
+  <component name="RunManager" selected="JUnit.All in biblioteca">
+    <configuration name="All in biblioteca" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MovieServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -118,29 +126,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.movies.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca.movies" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.movies.SampleMovieRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldReturnListOfAvailableMovies" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in biblioteca" />
         <item itemvalue="JUnit.MovieServiceTest" />
         <item itemvalue="JUnit.MovieServiceTest.shouldNotCheckOutAMovie" />
         <item itemvalue="JUnit.MovieServiceTest.shouldCheckOutABook" />
         <item itemvalue="JUnit.SampleMovieRepositoryTest" />
-        <item itemvalue="JUnit.SampleMovieRepositoryTest.shouldReturnListOfAvailableMovies" />
       </list>
     </recent_temporary>
   </component>
@@ -458,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570457268472</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="[Jann] [2.2] Update service method and adds test to not check out a non existent movie">
+      <created>1570457636690</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1570457636690</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -481,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Jann] [1.7] Adds Method to find and finally check out a book" />
     <MESSAGE value="[Jann] [1.7] Adds new the &quot;Checkout Book&quot; MenuOption to the Biblioteca application" />
     <MESSAGE value="[Jann] Updates workspace.xml" />
     <MESSAGE value="[Jann] [2.1] Adds test cases for MovieRating" />
@@ -506,7 +504,8 @@
     <MESSAGE value="[Jann] [2.2] Updates main application to list only the available movies" />
     <MESSAGE value="[Jann] [2.2] Adds service method and test to check out a movie" />
     <MESSAGE value="[Jann] [2.2] Update service method and adds test to not double check out a movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Update service method and adds test to not double check out a movie" />
+    <MESSAGE value="[Jann] [2.2] Update service method and adds test to not check out a non existent movie" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Jann] [2.2] Update service method and adds test to not check out a non existent movie" />
   </component>
   <component name="masterDetails">
     <states>

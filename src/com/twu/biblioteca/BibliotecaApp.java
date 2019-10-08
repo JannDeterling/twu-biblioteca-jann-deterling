@@ -22,6 +22,8 @@ public class BibliotecaApp {
         mainMenu.registerMenuOption("Return a book", bookService::returnBook);
 
         mainMenu.registerMenuOption("List available movies", movieService::printAvailableMovies);
+        mainMenu.registerMenuOption("Check out a movie", movieService::checkOutMovie);
+
 
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
         while (!shouldQuit) {
