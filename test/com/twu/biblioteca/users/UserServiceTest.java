@@ -35,24 +35,21 @@ public class UserServiceTest {
     public void shouldLogInUser(){
 
         final String libraryNumber = "012-3456";
-        final String password = "_test123";
+        final String password = "_test1234";
         final StringBuilder expectedOutput = new StringBuilder();
         expectedOutput.append("Please enter your library number:")
                 .append(System.lineSeparator())
-                .append(libraryNumber)
                 .append("Please enter your password:")
                 .append(System.lineSeparator())
-                .append(password)
                 .append("Your are now logged in!")
                 .append(System.lineSeparator());
 
 
-        provideTestInput(libraryNumber);
-        provideTestInput(password);
+
         SampleUserRepository sampleUserRepository = new SampleUserRepository();
         UserService userService = new UserService(sampleUserRepository);
+        provideTestInput(libraryNumber+"\n"+password);
         userService.loginUser();
-
         assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
     }
 
