@@ -5,8 +5,12 @@ import com.twu.biblioteca.books.SampleBookRepository;
 import com.twu.biblioteca.menu.MainMenu;
 import com.twu.biblioteca.movies.MovieService;
 import com.twu.biblioteca.movies.SampleMovieRepository;
+import com.twu.biblioteca.users.LoggedInUserSingleton;
 import com.twu.biblioteca.users.SampleUserRepository;
+import com.twu.biblioteca.users.User;
 import com.twu.biblioteca.users.UserService;
+
+import java.util.Optional;
 
 public class BibliotecaApp {
 
@@ -29,8 +33,16 @@ public class BibliotecaApp {
 
 
         mainMenu.registerMenuOption("Quit Biblioteca", BibliotecaApp::quitBibliotecaApp);
+
+        Boolean checkLoggedInUser = true;
         while (!shouldQuit) {
           mainMenu.displayMenu();
+          if (checkLoggedInUser) {
+              Optional<User> userOptional = LoggedInUserSingleton.getInstance().getLoggedInUser();
+              if (userOptional.isPresent() && userOptional.get().isLoggedIn()){
+                  mainMenu.registerMenuOption("Show personal informations", userService::printLoggedInUserInformation);
+              }
+          }
         }
     }
 
