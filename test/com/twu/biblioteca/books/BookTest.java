@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import com.twu.biblioteca.users.User;
 import org.junit.Test;
 
 import java.time.Year;
@@ -30,10 +31,12 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
+    User user = new User("012-3456", "test123");
+    user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
     assertThat(book.isCheckedOut(), is(false));
-    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.checkOutBook(user), is(true));
     assertThat(book.isCheckedOut(), is(true));
   }
 
@@ -42,11 +45,13 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
+    User user = new User("012-3456", "test123");
+    user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
-    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.checkOutBook(user), is(true));
     assertThat(book.isCheckedOut(), is(true));
-    assertThat(book.checkOutBook(), is(false));
+    assertThat(book.checkOutBook(user), is(false));
     assertThat(book.isCheckedOut(), is(true));
 
   }
@@ -56,24 +61,45 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
+    User user = new User("012-3456", "test123");
+    user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
     assertThat(book.isCheckedOut(), is(false));
-    assertThat(book.checkOutBook(), is(true));
+    assertThat(book.checkOutBook(user), is(true));
     assertThat(book.isCheckedOut(), is(true));
-    assertThat(book.returnBook(), is(true));
+    assertThat(book.returnBook(user), is(true));
     assertThat(book.isCheckedOut(), is(false));
   }
 
   @Test
-  public void shouldReturnAAvailableBook() {
+  public void shouldReturnNotAnAvailableBook() {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
+    User user = new User("012-3456", "test123");
+    user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
-    assertThat(book.returnBook(), is(false));
+    assertThat(book.returnBook(user), is(false));
     assertThat(book.isCheckedOut(), is(false));
+  }
+
+  @Test
+  public void shouldReturnNotAnForOtherUserBook() {
+    String title = "Domain Driven Design";
+    String author = "Eric Evans";
+    Year publishedYear = Year.parse("2003");
+    User checkOutUser = new User("012-3456", "test123");
+    checkOutUser.login("test123");
+    User returnUser = new User("012-3476", "test123");
+    returnUser.login("test123");
+    Book book = new Book(title, author, publishedYear);
+    assertThat(book, is(not(nullValue(Book.class))));
+    assertThat(book.checkOutBook(checkOutUser), is(true));
+    assertThat(book.isCheckedOut(), is(true));
+    assertThat(book.returnBook(returnUser), is(false));
+    assertThat(book.isCheckedOut(), is(true));
   }
 
   @Test(expected = AssertionError.class)
