@@ -32,8 +32,11 @@ public class UserTest {
         User user = new User(libraryNumber, password);
 
         assertThat(user, is(not(nullValue(User.class))));
+        assertThat(user.isLoggedIn(), is(false));
+        assertThat(user.login("test123"), is(false));
+        assertThat(user.isLoggedIn(), is(false));
         assertThat(user.login(password), is(true));
-        assertThat(user.isLoggedin(), is(true));
+        assertThat(user.isLoggedIn(), is(true));
     }
 
 }
