@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Optional;
 
 public class UserServiceTest {
 
@@ -23,6 +24,7 @@ public class UserServiceTest {
     public void setUpOutput() {
         testOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(testOutput));
+        LoggedInUserSingleton.getInstance().setLoggedInUser(Optional.empty());
     }
 
     @After
@@ -43,11 +45,14 @@ public class UserServiceTest {
                 .append("Your are now logged in!")
                 .append(System.lineSeparator());
 
+        provideTestInput(libraryNumber+"\n"+password);
         SampleUserRepository sampleUserRepository = new SampleUserRepository();
         UserService userService = new UserService(sampleUserRepository);
-        provideTestInput(libraryNumber+"\n"+password);
         userService.loginUser();
         assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().isPresent(), is(true));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().get().getLibraryNumber().toString(), is(equalTo(libraryNumber)));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().get().isLoggedIn(), is(equalTo(true)));
     }
 
     @Test
@@ -62,11 +67,12 @@ public class UserServiceTest {
                 .append("The entered password is incorrect.")
                 .append(System.lineSeparator());
 
+        provideTestInput(libraryNumber+"\n"+password);
         SampleUserRepository sampleUserRepository = new SampleUserRepository();
         UserService userService = new UserService(sampleUserRepository);
-        provideTestInput(libraryNumber+"\n"+password);
         userService.loginUser();
         assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().isPresent(), is(false));
     }
 
     @Test
@@ -78,11 +84,37 @@ public class UserServiceTest {
                 .append("The entered library number is not valid.")
                 .append(System.lineSeparator());
 
+        provideTestInput(libraryNumber);
         SampleUserRepository sampleUserRepository = new SampleUserRepository();
         UserService userService = new UserService(sampleUserRepository);
-        provideTestInput(libraryNumber);
         userService.loginUser();
         assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().isPresent(), is(false));
+    }
+
+    @Test
+    public void shouldReturnTheLoggedInUser(){
+        final String libraryNumber = "012-3456";
+        final String password = "_test1234";
+        final StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append("Please enter your library number:")
+                .append(System.lineSeparator())
+                .append("Please enter your password:")
+                .append(System.lineSeparator())
+                .append("Your are now logged in!")
+                .append(System.lineSeparator());
+
+        provideTestInput(libraryNumber+"\n"+password);
+        SampleUserRepository sampleUserRepository = new SampleUserRepository();
+        UserService userService = new UserService(sampleUserRepository);
+        Optional<User> userOptional = userService.getLoggedInUser();
+        assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+        assertThat(userOptional.isPresent(), is(true));
+        assertThat(userOptional.get(), is(notNullValue()));
+        assertThat(userOptional.get().getLibraryNumber().toString(), is(equalTo(libraryNumber)));
+        assertThat(userOptional.get().isLoggedIn(), is(true));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().isPresent(), is(true));
+        assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().get(), is(equalTo(userOptional.get())));
     }
 
     private void provideTestInput(String data) {
