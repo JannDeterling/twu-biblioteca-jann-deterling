@@ -4,6 +4,7 @@ package com.twu.biblioteca.users;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
+import com.twu.biblioteca.books.SampleBookRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -115,6 +116,16 @@ public class UserServiceTest {
         assertThat(userOptional.get().isLoggedIn(), is(true));
         assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().isPresent(), is(true));
         assertThat(LoggedInUserSingleton.getInstance().getLoggedInUser().get(), is(equalTo(userOptional.get())));
+    }
+
+    @Test
+    public void shouldPrintPersonalInformationOfLoggedInUser(){
+        User user = new User("012-3456", "test1234", "max", "max.mustermann@test.de", "0123919123");
+        user.login("test1234");
+        LoggedInUserSingleton.getInstance().setLoggedInUser(Optional.of(user));
+        UserService userService = new UserService(new SampleUserRepository());
+        userService.printLoggedInUserInformation();
+        assertThat(testOutput.toString(), is(equalTo(user.toString()+System.lineSeparator())));
     }
 
     private void provideTestInput(String data) {
