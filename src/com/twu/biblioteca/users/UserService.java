@@ -23,6 +23,16 @@ public class UserService {
         }
     }
 
+    public Optional<User> getLoggedInUser() {
+        Optional<User> userOptional = LoggedInUserSingleton.getInstance().getLoggedInUser();
+        if (userOptional.isPresent()) {
+            return userOptional;
+        } else {
+            this.loginUser();
+            return LoggedInUserSingleton.getInstance().getLoggedInUser();
+        }
+    }
+
     private Optional<User> getUserInteractiveByLibraryNumber() {
         System.out.println("Please enter your library number:");
         final String libraryNumber = scanner.nextLine();
@@ -34,9 +44,9 @@ public class UserService {
         final String password = scanner.nextLine();
         if(user.login(password)){
             System.out.println("Your are now logged in!");
+            LoggedInUserSingleton.getInstance().setLoggedInUser(Optional.of(user));
         } else  {
             System.out.println("The entered password is incorrect.");
         }
     }
-
 }
