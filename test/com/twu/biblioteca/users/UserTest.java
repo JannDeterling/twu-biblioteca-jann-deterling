@@ -14,13 +14,19 @@ public class UserTest {
 
         final String libraryNumber = "000-1234";
         final String password = "_test123";
-        User user = new User(libraryNumber, password);
+        final String name = "Max";
+        final String email = "max@test.de";
+        final String phone = "012312123123";
+        User user = new User(libraryNumber, password, name, email, phone);
 
         assertThat(user, is(not(nullValue(User.class))));
         // should set a library number
         assertThat(user.getLibraryNumber(), is(not(nullValue(LibraryNumber.class))));
         // should have the provided libraryNumber
         assertThat(user.getLibraryNumber().toString(), is(equalTo(libraryNumber)));
+        assertThat(user.getName(), is(equalTo(name)));
+        assertThat(user.getEmail(), is(equalTo(email)));
+        assertThat(user.getPhone(), is(equalTo(phone)));
 
     }
 
@@ -29,7 +35,10 @@ public class UserTest {
 
         final String libraryNumber = "000-1234";
         final String password = "_test123";
-        User user = new User(libraryNumber, password);
+        final String name = "Max";
+        final String email = "max@test.de";
+        final String phone = "012312123123";
+        User user = new User(libraryNumber, password, name, email, phone);
 
         assertThat(user, is(not(nullValue(User.class))));
         assertThat(user.isLoggedIn(), is(false));
