@@ -22,7 +22,11 @@ public class UserService {
             final String password = scanner.nextLine();
             if(user.login(password)){
                 System.out.println("Your are now logged in!");
+            } else  {
+                System.out.println("The entered password is incorrect.");
             }
+        }else {
+            System.out.println("The entered library number is not valid.");
         }
     }
 

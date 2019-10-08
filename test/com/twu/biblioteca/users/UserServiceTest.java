@@ -33,7 +33,6 @@ public class UserServiceTest {
 
     @Test
     public void shouldLogInUser(){
-
         final String libraryNumber = "012-3456";
         final String password = "_test1234";
         final StringBuilder expectedOutput = new StringBuilder();
@@ -44,11 +43,44 @@ public class UserServiceTest {
                 .append("Your are now logged in!")
                 .append(System.lineSeparator());
 
+        SampleUserRepository sampleUserRepository = new SampleUserRepository();
+        UserService userService = new UserService(sampleUserRepository);
+        provideTestInput(libraryNumber+"\n"+password);
+        userService.loginUser();
+        assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+    }
 
+    @Test
+    public void shouldNotLogInUserWrongPassword(){
+        final String libraryNumber = "012-3456";
+        final String password = "_test12";
+        final StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append("Please enter your library number:")
+                .append(System.lineSeparator())
+                .append("Please enter your password:")
+                .append(System.lineSeparator())
+                .append("The entered password is incorrect.")
+                .append(System.lineSeparator());
 
         SampleUserRepository sampleUserRepository = new SampleUserRepository();
         UserService userService = new UserService(sampleUserRepository);
         provideTestInput(libraryNumber+"\n"+password);
+        userService.loginUser();
+        assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
+    }
+
+    @Test
+    public void shouldNotLogInUserWrongUser(){
+        final String libraryNumber = "045-3456";
+        final StringBuilder expectedOutput = new StringBuilder();
+        expectedOutput.append("Please enter your library number:")
+                .append(System.lineSeparator())
+                .append("The entered library number is not valid.")
+                .append(System.lineSeparator());
+
+        SampleUserRepository sampleUserRepository = new SampleUserRepository();
+        UserService userService = new UserService(sampleUserRepository);
+        provideTestInput(libraryNumber);
         userService.loginUser();
         assertThat(testOutput.toString(), is(equalTo(expectedOutput.toString())));
     }
