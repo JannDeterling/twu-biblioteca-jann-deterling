@@ -41,6 +41,7 @@ public class BibliotecaApp {
               Optional<User> userOptional = LoggedInUserSingleton.getInstance().getLoggedInUser();
               if (userOptional.isPresent() && userOptional.get().isLoggedIn()){
                   mainMenu.registerMenuOption("Show personal informations", userService::printLoggedInUserInformation);
+                  checkLoggedInUser = false;
               }
           }
         }
