@@ -31,7 +31,7 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
@@ -45,7 +45,7 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
@@ -61,7 +61,7 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
@@ -77,7 +77,7 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));
@@ -90,9 +90,9 @@ public class BookTest {
     String title = "Domain Driven Design";
     String author = "Eric Evans";
     Year publishedYear = Year.parse("2003");
-    User checkOutUser = new User("012-3456", "test123");
+    User checkOutUser = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     checkOutUser.login("test123");
-    User returnUser = new User("012-3476", "test123");
+    User returnUser =  new User("123-3456", "test123", "max", "max@test.de", "0000/0000");
     returnUser.login("test123");
     Book book = new Book(title, author, publishedYear);
     assertThat(book, is(not(nullValue(Book.class))));

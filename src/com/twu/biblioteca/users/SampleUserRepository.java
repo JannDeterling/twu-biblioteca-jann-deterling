@@ -10,8 +10,8 @@ import java.util.Optional;
 public class SampleUserRepository  implements Repository<User> {
 
     private  final List<User> SAMPLE_USERS = new ArrayList<User>(Arrays.asList(
-            new User("012-3456", "_test1234"),
-            new User("123-4567", "_qwert123")
+            new User("012-3456", "_test1234", "Jann", "jann@test.de", "0000/0000"),
+            new User("123-4567", "_qwert123", "Lamina", "lamina@test.de", "0000/0000")
     ));
 
 

@@ -169,7 +169,7 @@ public class BookServiceTest {
   }
 
   private void logInASampleUser(){
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     LoggedInUserSingleton.getInstance().setLoggedInUser(Optional.of(user));
   }

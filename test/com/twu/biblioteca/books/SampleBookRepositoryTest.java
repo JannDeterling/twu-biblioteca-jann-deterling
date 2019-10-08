@@ -18,7 +18,7 @@ public class SampleBookRepositoryTest {
   @Test
   public void shouldReturnListOfAllAvailableBooks() {
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    User user = new User("012-3456", "test123");
+    User user = new User("012-3456", "test123", "max", "max@test.de", "0000/0000");
     user.login("test123");
     List<Book> bookList = sampleBookRepository.getAllAvailable();
     assertThat(bookList, is(not(nullValue(List.class))));
