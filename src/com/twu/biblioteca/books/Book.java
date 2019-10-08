@@ -71,6 +71,7 @@ public class Book {
             && returnUser.isLoggedIn()
             && returnUser.equals(this.checkOutUser)){
       this.isCheckedOut = false;
+      this.checkOutUser = null;
       return true;
     }
     return false;
