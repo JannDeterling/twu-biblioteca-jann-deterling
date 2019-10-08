@@ -5,6 +5,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import com.twu.biblioteca.users.SampleUserRepository;
+import com.twu.biblioteca.users.UserService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,11 +27,14 @@ public class MainMenuTest {
   private final PrintStream systemOut = System.out;
 
   private ByteArrayOutputStream testOut;
+  private BookService bookService;
 
   @Before
   public void setUpOutput() {
     testOut = new ByteArrayOutputStream();
     System.setOut(new PrintStream(testOut));
+    UserService userService = new UserService(new SampleUserRepository());
+    this.bookService = new BookService(new SampleBookRepository(), userService);
   }
 
   private void provideTestInput(String data) {
@@ -52,14 +57,12 @@ public class MainMenuTest {
   @Test(expected = AssertionError.class)
   public void shouldNotRegisterInvalidMenuOptionWithNullDescription() {
     MainMenu mainMenu = new MainMenu();
-    BookService bookService = new BookService(new SampleBookRepository());
     mainMenu.registerMenuOption(null, bookService::printBookList);
   }
 
   @Test(expected = AssertionError.class)
   public void shouldNotRegisterInvalidMenuOptionWithEmptyDescription() {
     MainMenu mainMenu = new MainMenu();
-    BookService bookService = new BookService(new SampleBookRepository());
     mainMenu.registerMenuOption("", bookService::printBookList);
   }
 
@@ -69,7 +72,6 @@ public class MainMenuTest {
     String description = "List Books";
     MainMenu mainMenu = new MainMenu();
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    BookService bookService = new BookService(sampleBookRepository);
     mainMenu.registerMenuOption(description, bookService::printBookList);
     mainMenu.displayMenu();
 
@@ -94,7 +96,6 @@ public class MainMenuTest {
     String description = "List Books";
     MainMenu mainMenu = new MainMenu();
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    BookService bookService = new BookService(sampleBookRepository);
     mainMenu.registerMenuOption(description, bookService::printBookList);
     mainMenu.displayMenu();
 

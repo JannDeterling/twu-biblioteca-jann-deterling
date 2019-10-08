@@ -6,6 +6,9 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import com.twu.biblioteca.users.SampleUserRepository;
+import com.twu.biblioteca.users.UserService;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,16 +23,24 @@ import com.twu.biblioteca.books.SampleBookRepository;
 public class MenuOptionTest {
 
   private static final ByteArrayOutputStream testOutput = new ByteArrayOutputStream();
+  private BookService bookService;
 
   @BeforeClass
-  public static void setupTest() {
+  public static void setupTestClass() {
     System.setOut(new PrintStream(testOutput));
+
   }
+
+  @Before
+  public void setupTest(){
+    UserService userService = new UserService(new SampleUserRepository());
+    this.bookService = new BookService(new SampleBookRepository(), userService);
+  }
+
 
   @Test
   public void shouldCreateValidMenuOption() {
     String menuOptionDescription = "List Books";
-    BookService bookService = new BookService(new SampleBookRepository());
     MenuOption menuOption = new MenuOption(0, menuOptionDescription, bookService::printBookList);
     assertThat(menuOption, is(not(nullValue(MenuOption.class))));
     assertThat(menuOption.getIndex(), is(0));
@@ -40,7 +51,6 @@ public class MenuOptionTest {
   public void runMenuOptionAction(){
     String menuOptionDescription = "List Books";
     SampleBookRepository sampleBookRepository = new SampleBookRepository();
-    BookService bookService = new BookService(sampleBookRepository);
     MenuOption menuOption = new MenuOption(0, menuOptionDescription, bookService::printBookList);
     menuOption.runAction();
     assertThat(testOutput.toString(), is(not(equalTo(""))));
@@ -55,13 +65,11 @@ public class MenuOptionTest {
 
   @Test(expected = AssertionError.class)
   public void shouldCreateInvalidMenuOptionWithEmptyDescription() {
-    BookService bookService = new BookService(new SampleBookRepository());
     new MenuOption(0, "", bookService::printBookList);
   }
 
   @Test(expected = AssertionError.class)
   public void shouldCreateInvalidMenuOptionWithNullDescription() {
-    BookService bookService = new BookService(new SampleBookRepository());
     new MenuOption(0, null, bookService::printBookList);
   }
 
@@ -72,13 +80,11 @@ public class MenuOptionTest {
 
   @Test(expected = AssertionError.class)
   public void shouldCreateInvalidMenuOptionWithNullInteger() {
-    BookService bookService = new BookService(new SampleBookRepository());
     new MenuOption(null, "List Books", bookService::printBookList);
   }
 
   @Test(expected = AssertionError.class)
   public void shouldCreateInvalidMenuOptionWithNegativeInteger() {
-    BookService bookService = new BookService(new SampleBookRepository());
     new MenuOption(-1, "List Books", bookService::printBookList);
   }
 }
